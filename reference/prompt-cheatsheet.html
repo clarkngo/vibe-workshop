@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Cheat Sheet · Vibe Workshop</title>
+<meta name="description" content="The four ingredients of a prompt that holds up, and the iteration patterns from Module 2, on one page.">
+<link rel="stylesheet" href="../shared/theme.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <a class="brand" href="../index.html">Vibe Workshop</a>
+      <div class="masthead-actions">
+        <button class="icon-btn" data-action="toggle-theme">🌙 Dark</button>
+        <button class="icon-btn" data-action="print">🖶 Print</button>
+      </div>
+    </div>
+    <div class="breadcrumb"><a href="../index.html">Vibe Workshop</a> / Reference / Prompt Cheat Sheet</div>
+    <div class="eyebrow">Reference</div>
+    <h1 class="title">Prompt Cheat Sheet</h1>
+    <p class="dek">From <a href="../modules/module-02.html">Module 02</a>, condensed to one page for the walk back to your desk.</p>
+  </div>
+</header>
+
+<div class="layout no-sidebar">
+<main class="content">
+
+<section class="block">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Four ingredients of a prompt that holds up</h2></div>
+  <div class="card-grid">
+    <div class="card"><h4>Context</h4><p>What already exists. Paste the current code, not a description of it.</p></div>
+    <div class="card"><h4>Constraints</h4><p>Language, library, performance, style — say what's fixed.</p></div>
+    <div class="card"><h4>Example</h4><p>A concrete input/output pair beats another paragraph of description.</p></div>
+    <div class="card"><h4>Success criteria</h4><p>How you'll know it's done — a test passing, a page loading, an edge case handled.</p></div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Reading output — three questions</h2></div>
+  <ol>
+    <li>What actually changed? (Check the diff, not the summary.)</li>
+    <li>Does it match what I asked for?</li>
+    <li>Any red flags — unrecognized functions, unrelated imports, swallowed errors?</li>
+  </ol>
+</section>
+
+<section class="block">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Iterating without starting over</h2></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pattern</th><th>When to use it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Narrow the ask</strong></td><td>The shape is right, one part is wrong — name the part, leave the rest.</td></tr>
+        <tr><td><strong>Paste the error verbatim</strong></td><td>You have an exact error message — don't paraphrase it.</td></tr>
+        <tr><td><strong>Ask for the reasoning</strong></td><td>Output looks odd but doesn't obviously fail.</td></tr>
+        <tr><td><strong>Ask for tests</strong></td><td>You're not sure the logic is right.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Blast-radius checklist</h2></div>
+  <p>From <a href="../modules/module-03.html">Module 03</a> — scale verification to what happens if this specific answer is wrong.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Blast radius</th><th>Minimum verification</th></tr></thead>
+      <tbody>
+        <tr><td>Low</td><td>Skim it, run it, move on.</td></tr>
+        <tr><td>Medium</td><td>Run it against a real example; check edge cases.</td></tr>
+        <tr><td>High</td><td>A second person reviews it before it ships. No exceptions.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <a href="../index.html">← Back to Vibe Workshop hub</a>
+</footer>
+
+<script src="../shared/nav.js"></script>
+</body>
+</html>

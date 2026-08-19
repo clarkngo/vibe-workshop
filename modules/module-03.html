@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 03 — Judgment &amp; Guardrails · Vibe Workshop</title>
+<meta name="description" content="Judgment module: the difference between output that looks right and output that's verified, and a checklist scaled to how much a wrong answer would cost.">
+<link rel="stylesheet" href="../shared/theme.css">
+</head>
+<body data-module-id="module-03">
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <a class="brand" href="../index.html">Vibe Workshop</a>
+      <div class="masthead-actions">
+        <button class="icon-btn" data-action="toggle-theme">🌙 Dark</button>
+        <button class="icon-btn" data-action="print">🖶 Print</button>
+      </div>
+    </div>
+    <div class="breadcrumb"><a href="../index.html">Vibe Workshop</a> / Module 03</div>
+    <div class="eyebrow">Judgment · Module 3 of 4</div>
+    <h1 class="title">Judgment &amp; Guardrails</h1>
+    <p class="dek">When to trust AI output, when to verify it, and what "verify" means for people who don't read code.</p>
+    <div class="meta-row">
+      <span><b>Duration:</b> 45 min</span>
+      <span><b>Difficulty:</b> Introductory</span>
+      <span><b>Strand:</b> Judgment</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc-bar">
+  <div class="toc-inner">
+    <div class="toc-links">
+      <a class="toc-link" href="#overview"><span>1</span>Overview</a>
+      <a class="toc-link" href="#content"><span>2</span>Content</a>
+      <a class="toc-link" href="#activity"><span>3</span>Activity</a>
+      <a class="toc-link" href="#review"><span>4</span>Review</a>
+      <a class="toc-link" href="#further-reading"><span>5</span>Further Reading</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+<main class="content">
+
+<div class="callout stub">
+  <div class="callout-mark">Stub</div>
+  <p>This module is scaffolded, not fully built out — objectives, key terms, and the core content are real and workshop-ready, but the activity and simulation are intentionally lighter than Modules 1–2. Flesh out before this becomes the standing version of the deck.</p>
+</div>
+
+<section class="block" id="overview">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Overview &amp; Objectives</h2></div>
+  <p>Modules 1 and 2 built the loop and the skill of prompting well. This module is about the last, hardest step: deciding how much to trust what comes back, and what "verify" actually means when you're not the one reading the code.</p>
+  <p><strong>By the end of this module, you'll be able to:</strong></p>
+  <ul id="objectives">
+    <li>Explain the difference between output that "looks right" and output that's been verified</li>
+    <li>Apply a lightweight verification checklist scaled to how much damage a wrong answer could do</li>
+    <li>Identify who to loop in when AI output touches something high-stakes</li>
+  </ul>
+  <p><strong>Prerequisites:</strong> Modules 01–02.</p>
+</section>
+
+<section class="block" id="key-terms-section">
+  <div class="sec-head"><span class="sec-num">·</span><h2>Key Terms</h2></div>
+  <div class="table-wrap">
+    <table id="key-terms">
+      <thead><tr><th>Term</th><th>Definition</th><th>First used in</th></tr></thead>
+      <tbody>
+        <tr><td>Verification</td><td>Actually confirming output does what it claims — running it, testing it, or having someone else check — as opposed to just reading it and nodding.</td><td>s1</td></tr>
+        <tr><td>Blast radius</td><td>How much damage a wrong answer could do if nobody catches it before it's used.</td><td>s2</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="content">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Content Modules</h2></div>
+
+  <h3>s1 — "Looks right" isn't "is right"</h3>
+  <p>Everyone in the room can eyeball whether an answer <em>looks</em> plausible — that's not a technical skill. Verification is different: it means you did something that would have caught the answer if it were wrong. Reading confidently-written prose is not that something, for anyone, technical or not.</p>
+  <div class="callout">
+    <div class="callout-mark">Non-technical readers</div>
+    <p>You can verify without reading code: run it and check the actual result against what you expected, ask the AI to explain its reasoning and see if the explanation holds up, or hand it to someone who can read it. "I can't read the code" is not the same as "I can't verify the output."</p>
+  </div>
+
+  <h3>s2 — Scale the checklist to the blast radius</h3>
+  <p>You don't need the same verification effort for every task — you need it proportional to what happens if this specific answer is wrong. Use Module 1's "good fit / needs more rigor" table as a starting point, then apply this:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Blast radius</th><th>Minimum verification</th></tr></thead>
+      <tbody>
+        <tr><td>Low — just for you, easy to undo</td><td>Skim it, run it, move on.</td></tr>
+        <tr><td>Medium — others will see or use this</td><td>Run it against a real example; check the edge cases you can think of.</td></tr>
+        <tr><td>High — money, access, personal data, or it's hard to undo</td><td>A second person reviews it before it ships. No exceptions.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="activity">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Activity — Name the Blast Radius</h2></div>
+  <p><strong>Type:</strong> Discussion, pairs · <strong>Time:</strong> 10 min</p>
+  <p>Each pair picks one real task from their own work — something they'd actually consider vibe coding. Answer out loud: what's the blast radius if the AI gets it wrong, and who would need to be looped in before it ships? Report one example back to the room.</p>
+</section>
+
+<section class="block" id="review">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Review &amp; Knowledge Check</h2></div>
+  <form data-quiz>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">1. What makes something "verified" rather than just "looks right"?</div>
+      <label class="q-opt"><input type="radio" name="q1" data-correct="false"> A confident, well-written explanation from the AI</label>
+      <label class="q-opt"><input type="radio" name="q1" data-correct="true"> Something that would have caught the answer if it were wrong — running it, testing it, or a second check</label>
+      <div class="quiz-feedback" data-correct-msg="Correct." data-incorrect-msg="Revisit s1."></div>
+    </div>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">2. A task has a high blast radius. What's the minimum bar?</div>
+      <label class="q-opt"><input type="radio" name="q2" data-correct="false"> Skim it and move on if it looks fine</label>
+      <label class="q-opt"><input type="radio" name="q2" data-correct="true"> A second person reviews it before it ships</label>
+      <div class="quiz-feedback" data-correct-msg="Correct." data-incorrect-msg="Revisit the table in s2."></div>
+    </div>
+    <p><button class="btn" type="button" data-action="grade-quiz">Grade My Quiz</button></p>
+    <p class="quiz-score"></p>
+  </form>
+</section>
+
+<section class="block" id="further-reading">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Further Reading</h2></div>
+  <ul>
+    <li><a href="../instructor/responsible-use.html">Responsible Use Policy</a> — the guardrails that apply regardless of blast radius (what never goes into a prompt).</li>
+  </ul>
+</section>
+
+<section class="block" id="deliverables">
+  <div class="sec-head"><span class="sec-num">·</span><h2>Deliverables</h2></div>
+  <div class="deliverables">
+    <label><input type="checkbox"> Objectives checklist completed (see sidebar)</label>
+    <label><input type="checkbox"> Name the Blast Radius example shared with the room</label>
+    <label><input type="checkbox"> Knowledge check quiz attempted</label>
+  </div>
+</section>
+
+<div class="prev-next">
+  <a class="prev" href="module-02.html"><span class="dir">Previous</span><span class="lbl">← Module 02 — The Vibe Coding Loop</span></a>
+  <a class="next" href="module-04.html"><span class="dir">Next</span><span class="lbl">Module 04 — Capstone →</span></a>
+</div>
+
+</main>
+<aside class="sidebar"></aside>
+</div>
+
+<footer class="site-footer">
+  <a href="../index.html">← Back to Vibe Workshop hub</a>
+</footer>
+
+<script src="../shared/nav.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+</body>
+</html>

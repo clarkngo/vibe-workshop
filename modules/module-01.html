@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 01 — What Is Vibe Coding? · Vibe Workshop</title>
+<meta name="description" content="Foundations module: define vibe coding, learn the prompt-generate-read-judge loop, and see where it fits versus where it's risky.">
+<link rel="stylesheet" href="../shared/theme.css">
+</head>
+<body data-module-id="module-01">
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <a class="brand" href="../index.html">Vibe Workshop</a>
+      <div class="masthead-actions">
+        <button class="icon-btn" data-action="toggle-theme">🌙 Dark</button>
+        <button class="icon-btn" data-action="print">🖶 Print</button>
+      </div>
+    </div>
+    <div class="breadcrumb"><a href="../index.html">Vibe Workshop</a> / Module 01</div>
+    <div class="eyebrow">Foundations · Module 1 of 4</div>
+    <h1 class="title">What Is Vibe Coding?</h1>
+    <p class="dek">The mindset shift, the four-step loop underneath it, and a map of where it belongs versus where it will quietly hurt you.</p>
+    <div class="meta-row">
+      <span><b>Duration:</b> 45 min</span>
+      <span><b>Difficulty:</b> Introductory</span>
+      <span><b>Strand:</b> Foundations</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc-bar">
+  <div class="toc-inner">
+    <div class="toc-links">
+      <a class="toc-link" href="#overview"><span>1</span>Overview</a>
+      <a class="toc-link" href="#content"><span>2</span>Content</a>
+      <a class="toc-link" href="#activity"><span>3</span>Activity</a>
+      <a class="toc-link" href="#simulation"><span>4</span>Simulation</a>
+      <a class="toc-link" href="#review"><span>5</span>Review</a>
+      <a class="toc-link" href="#further-reading"><span>6</span>Further Reading</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+<main class="content">
+
+<section class="block" id="overview">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Overview &amp; Objectives</h2></div>
+  <p>"Vibe coding" is what people started calling it when you build software mostly by describing what you want to an AI model and steering its output, rather than typing every line yourself. It's not a new programming language or a new tool category — it's a different division of labor between you and the machine, and this module is about understanding that division clearly enough to use it on purpose.</p>
+  <p><strong>By the end of this module, you'll be able to:</strong></p>
+  <ul id="objectives">
+    <li>Define "vibe coding" and describe how it differs from traditional hand-written coding</li>
+    <li>Walk through the four-step loop — prompt, generate, read, judge/iterate — that sits under every vibe coding session</li>
+    <li>Sort a task as a good fit for vibe coding, or one that needs more rigor, and explain why</li>
+    <li>Explain the core risk: fluent-sounding output is not the same thing as correct output</li>
+  </ul>
+  <p><strong>Prerequisites:</strong> none. This module assumes no prior coding experience.</p>
+</section>
+
+<section class="block" id="key-terms-section">
+  <div class="sec-head"><span class="sec-num">·</span><h2>Key Terms</h2></div>
+  <div class="table-wrap">
+    <table id="key-terms">
+      <thead><tr><th>Term</th><th>Definition</th><th>First used in</th></tr></thead>
+      <tbody>
+        <tr><td>Vibe coding</td><td>Building software mostly by describing what you want to an AI and steering its output, rather than writing every line by hand.</td><td>s1</td></tr>
+        <tr><td>Prompt</td><td>The instruction you give the AI describing what you want it to do.</td><td>s1</td></tr>
+        <tr><td>Iteration</td><td>Refining a result through a follow-up prompt, instead of throwing it out and starting over.</td><td>s2</td></tr>
+        <tr><td>Hallucination</td><td>Output that sounds confident and fluent but is factually or functionally wrong.</td><td>s3</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="content">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Content Modules</h2></div>
+
+  <h3>s1 — Where the term comes from, and what it actually means</h3>
+  <p>The phrase entered common use in 2025 to describe a specific experience: you describe a feature or a fix in plain language, the AI writes the code, and you evaluate the result "by vibe" — does it look right, does it run, does it do the thing — rather than reading every generated line the way you'd review a colleague's pull request.</p>
+  <p>That's a real and useful mode. It's also easy to misapply. The name describes a <em>feeling</em> (fast, conversational, low-friction), not a <em>guarantee</em> (correct, secure, maintainable). Everything else in this workshop is about keeping the feeling while not losing the guarantee where it matters.</p>
+  <div class="callout">
+    <div class="callout-mark">Analogy</div>
+    <p>It's closer to briefing a capable contractor than to typing. You describe the outcome, they do the work, and your job shifts from "produce every detail" to "specify clearly, inspect what comes back, and know when to ask for changes."</p>
+  </div>
+
+  <h3>s2 — The loop underneath every session</h3>
+  <p>Whether you notice it or not, every vibe coding session runs the same four-step loop. Naming the steps makes it possible to debug a session that's going badly — you can usually tell which step just failed.</p>
+  <div class="card-grid">
+    <div class="card"><h4>1 · Prompt</h4><p>You describe the goal, the constraints, and what "done" looks like.</p></div>
+    <div class="card"><h4>2 · Generate</h4><p>The AI produces code, an explanation, or both — in seconds, not minutes.</p></div>
+    <div class="card"><h4>3 · Read</h4><p>You actually look at what came back, not just whether it ran.</p></div>
+    <div class="card"><h4>4 · Judge / Iterate</h4><p>Accept it, reject it, or send back a specific correction. Repeat.</p></div>
+  </div>
+  <p>Module 2 goes deep on steps 1, 3, and 4 — writing prompts that hold up, reading output like a reviewer instead of a spectator, and iterating without starting over each time.</p>
+
+  <h3>s3 — Where it shines, where it's risky</h3>
+  <p>The loop works the same everywhere, but the stakes of a bad step 4 don't. Use this as a rough sorting rule, not a hard boundary — Module 3 covers the judgment calls in between.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Good fit for vibe coding</th><th>Needs more rigor</th></tr></thead>
+      <tbody>
+        <tr><td>Throwaway scripts, one-off data cleanups</td><td>Anything touching money, health, or legal data</td></tr>
+        <tr><td>Prototypes you'll validate then rebuild</td><td>Code that ships straight to production users</td></tr>
+        <tr><td>Boilerplate and glue code you can read at a glance</td><td>Security-sensitive logic (auth, permissions, payments)</td></tr>
+        <tr><td>Exploring an idea before you've committed to it</td><td>Anything you can't easily test or verify</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn">
+    <div class="callout-mark">The core risk</div>
+    <p>AI output is fluent by default — confident-sounding code and confident-sounding explanations come at the same price. Fluency is not correctness. A hallucinated function call and a real one read identically until you check.</p>
+  </div>
+</section>
+
+<section class="block" id="activity">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Activity — Sort the Scenario</h2></div>
+  <p><strong>Type:</strong> Sorting · <strong>Time:</strong> 10 min, individual then pair-share</p>
+  <p>For each scenario below, decide: is this a <strong>good fit for vibe coding</strong>, or does it <strong>need more rigor</strong> (careful review, tests, or a second pair of eyes before it ships)? Pick an answer for each, then check your mapping.</p>
+  <div class="activity-box" data-activity="match">
+    <div class="match-row" data-answer="good-fit">
+      <span class="prompt-text">A one-time script to rename 200 files by a pattern.</span>
+      <select><option value="">Choose…</option><option value="good-fit">Good fit</option><option value="more-rigor">Needs more rigor</option></select>
+      <div class="match-feedback ok">Right — low stakes, easy to eyeball the result before you run it.</div>
+      <div class="match-feedback bad">Reconsider — what's the actual cost if this renames the wrong files?</div>
+    </div>
+    <div class="match-row" data-answer="more-rigor">
+      <span class="prompt-text">A function that calculates a customer's refund amount.</span>
+      <select><option value="">Choose…</option><option value="good-fit">Good fit</option><option value="more-rigor">Needs more rigor</option></select>
+      <div class="match-feedback ok">Right — money math needs tests and a human check, not just a glance.</div>
+      <div class="match-feedback bad">Reconsider — this touches money. A silent off-by-one here costs someone real dollars.</div>
+    </div>
+    <div class="match-row" data-answer="good-fit">
+      <span class="prompt-text">A quick prototype landing page to show a stakeholder tomorrow.</span>
+      <select><option value="">Choose…</option><option value="good-fit">Good fit</option><option value="more-rigor">Needs more rigor</option></select>
+      <div class="match-feedback ok">Right — it's disposable and you'll rebuild it properly if the idea sticks.</div>
+      <div class="match-feedback bad">Reconsider — nothing here ships to real users or handles real data yet.</div>
+    </div>
+    <div class="match-row" data-answer="more-rigor">
+      <span class="prompt-text">Code that checks whether a logged-in user is allowed to view a page.</span>
+      <select><option value="">Choose…</option><option value="good-fit">Good fit</option><option value="more-rigor">Needs more rigor</option></select>
+      <div class="match-feedback ok">Right — access control is security-sensitive. Get a second pair of eyes.</div>
+      <div class="match-feedback bad">Reconsider — this is exactly the kind of logic where a subtle bug becomes a data leak.</div>
+    </div>
+    <p style="margin-top:14px;">
+      <button class="btn" data-action="check-mapping">Check My Mapping</button>
+      <span class="match-score" style="margin-left:12px; font-family: var(--font-mono); font-size: 13px; color: var(--muted);"></span>
+    </p>
+  </div>
+</section>
+
+<section class="block" id="simulation">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Simulation — Vague vs. Specific Prompt</h2></div>
+  <p><strong>Model:</strong> a canned side-by-side of what an AI tends to hand back depending on how specific the prompt was. <strong>Controls:</strong> pick a prompt specificity level. <strong>Discussion trigger:</strong> what did the specific version add that the vague one couldn't have guessed?</p>
+  <p style="font-size:13px; color:var(--muted);">⚠ Simulation only — these are pre-written example outputs, not a live AI call.</p>
+  <div class="sim-box">
+    <div class="sim-controls">
+      <label for="prompt-level">Prompt: </label>
+      <select id="prompt-level">
+        <option value="vague">"Add a login form"</option>
+        <option value="better">"Add a login form with email + password fields"</option>
+        <option value="specific">"Add a login form: email + password, validate email format client-side, show an inline error on failed login, disable the submit button while the request is in flight"</option>
+      </select>
+    </div>
+    <div class="sim-readout" id="sim-readout">Select a prompt level above.</div>
+  </div>
+</section>
+
+<section class="block" id="review">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Review &amp; Knowledge Check</h2></div>
+  <form data-quiz>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">1. What does "vibe coding" primarily describe?</div>
+      <label class="q-opt"><input type="radio" name="q1" data-correct="false"> A new programming language</label>
+      <label class="q-opt"><input type="radio" name="q1" data-correct="true"> Building software by describing intent to an AI and steering its output</label>
+      <label class="q-opt"><input type="radio" name="q1" data-correct="false"> Coding only late at night</label>
+      <div class="quiz-feedback" data-correct-msg="Correct — it's a mode of working, not a language or tool." data-incorrect-msg="Not quite — revisit s1. It's a way of working, not a language."></div>
+    </div>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">2. Which is the correct order of the four-step loop?</div>
+      <label class="q-opt"><input type="radio" name="q2" data-correct="false"> Generate → Prompt → Iterate → Read</label>
+      <label class="q-opt"><input type="radio" name="q2" data-correct="true"> Prompt → Generate → Read → Judge/Iterate</label>
+      <label class="q-opt"><input type="radio" name="q2" data-correct="false"> Read → Prompt → Judge → Generate</label>
+      <div class="quiz-feedback" data-correct-msg="Correct." data-incorrect-msg="Not quite — revisit s2 for the loop order."></div>
+    </div>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">3. Which task is the best fit for vibe coding as described in this module?</div>
+      <label class="q-opt"><input type="radio" name="q3" data-correct="false"> A refund-calculation function</label>
+      <label class="q-opt"><input type="radio" name="q3" data-correct="false"> A page-access permission check</label>
+      <label class="q-opt"><input type="radio" name="q3" data-correct="true"> A one-off script to rename files</label>
+      <div class="quiz-feedback" data-correct-msg="Correct — low stakes, easy to verify." data-incorrect-msg="Revisit s3 — think about what's actually at stake if this one is wrong."></div>
+    </div>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">4. Why is fluent-sounding AI output risky on its own?</div>
+      <label class="q-opt"><input type="radio" name="q4" data-correct="false"> Fluent output is always slower to generate</label>
+      <label class="q-opt"><input type="radio" name="q4" data-correct="true"> Confident, readable output can still be wrong — fluency and correctness aren't the same thing</label>
+      <label class="q-opt"><input type="radio" name="q4" data-correct="false"> It isn't risky — fluent output is always correct</label>
+      <div class="quiz-feedback" data-correct-msg="Correct — this is the core risk from s3." data-incorrect-msg="Revisit the callout in s3 on hallucination."></div>
+    </div>
+    <p><button class="btn" type="button" data-action="grade-quiz">Grade My Quiz</button></p>
+    <p class="quiz-score"></p>
+  </form>
+</section>
+
+<section class="block" id="further-reading">
+  <div class="sec-head"><span class="sec-num">6</span><h2>Further Reading</h2></div>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Vibe_coding">"Vibe coding" — Wikipedia</a> — background on the term and its origin.</li>
+    <li><a href="https://www.anthropic.com/claude-code">Claude Code</a> — one example of an AI coding tool built around this loop.</li>
+    <li>Optional take-home: find one public postmortem of a bug that shipped from unreviewed AI-generated code. What step of the loop broke?</li>
+  </ul>
+</section>
+
+<section class="block" id="deliverables">
+  <div class="sec-head"><span class="sec-num">·</span><h2>Deliverables</h2></div>
+  <div class="deliverables">
+    <label><input type="checkbox"> Objectives checklist completed (see sidebar)</label>
+    <label><input type="checkbox"> Sort the Scenario activity checked</label>
+    <label><input type="checkbox"> Knowledge check quiz attempted</label>
+  </div>
+</section>
+
+<div class="prev-next">
+  <span></span>
+  <a class="next" href="module-02.html"><span class="dir">Next</span><span class="lbl">Module 02 — The Vibe Coding Loop →</span></a>
+</div>
+
+</main>
+<aside class="sidebar"></aside>
+</div>
+
+<footer class="site-footer">
+  <a href="../index.html">← Back to Vibe Workshop hub</a>
+</footer>
+
+<script src="../shared/nav.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+  (function () {
+    var samples = {
+      vague: "Sure! Here's a login form:\n\n<form>\n  <input type=\"text\">\n  <input type=\"text\">\n  <button>Submit</button>\n</form>\n\n" +
+        "// Note: both fields are plain text, there's no password masking,\n// no validation, and no handling for a failed login.\n" +
+        "// You'll be back with three follow-up prompts to fix what you\n// didn't specify the first time.",
+      better: "Here's a login form with email and password fields:\n\n<form>\n  <input type=\"email\">\n  <input type=\"password\">\n  <button>Log in</button>\n</form>\n\n" +
+        "// Better — the field types are right. Still no error handling,\n// so a failed login just... does nothing visible.",
+      specific: "Here's the login form:\n\n<form id=\"login\">\n  <input type=\"email\" required>\n  <input type=\"password\" required>\n  <p class=\"error\" hidden>Invalid email or password.</p>\n  <button type=\"submit\">Log in</button>\n</form>\n\n" +
+        "<span class=\"hl\">// Client-side email format check added.\n// Submit button disables on request, shows the inline error on failure.\n// This is close to what you'd actually want to review and ship.</span>"
+    };
+    var select = document.getElementById("prompt-level");
+    var readout = document.getElementById("sim-readout");
+    function render() { readout.innerHTML = samples[select.value]; }
+    select.addEventListener("change", render);
+    render();
+  })();
+</script>
+</body>
+</html>

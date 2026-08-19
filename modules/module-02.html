@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 02 — The Vibe Coding Loop · Vibe Workshop</title>
+<meta name="description" content="Practice module: write prompts that hold up, read AI output like a reviewer, and iterate without starting over.">
+<link rel="stylesheet" href="../shared/theme.css">
+</head>
+<body data-module-id="module-02">
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <a class="brand" href="../index.html">Vibe Workshop</a>
+      <div class="masthead-actions">
+        <button class="icon-btn" data-action="toggle-theme">🌙 Dark</button>
+        <button class="icon-btn" data-action="print">🖶 Print</button>
+      </div>
+    </div>
+    <div class="breadcrumb"><a href="../index.html">Vibe Workshop</a> / Module 02</div>
+    <div class="eyebrow">Practice · Module 2 of 4</div>
+    <h1 class="title">The Vibe Coding Loop: Prompt, Review, Iterate</h1>
+    <p class="dek">The three skills that separate a productive vibe coding session from a frustrating one: prompting with enough detail, reading output like a reviewer, and iterating without starting over.</p>
+    <div class="meta-row">
+      <span><b>Duration:</b> 60 min</span>
+      <span><b>Difficulty:</b> Introductory</span>
+      <span><b>Strand:</b> Practice</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc-bar">
+  <div class="toc-inner">
+    <div class="toc-links">
+      <a class="toc-link" href="#overview"><span>1</span>Overview</a>
+      <a class="toc-link" href="#content"><span>2</span>Content</a>
+      <a class="toc-link" href="#activity"><span>3</span>Activity</a>
+      <a class="toc-link" href="#simulation"><span>4</span>Simulation</a>
+      <a class="toc-link" href="#review"><span>5</span>Review</a>
+      <a class="toc-link" href="#further-reading"><span>6</span>Further Reading</a>
+    </div>
+  </div>
+</nav>
+
+<div class="layout">
+<main class="content">
+
+<section class="block" id="overview">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Overview &amp; Objectives</h2></div>
+  <p>Module 1 named the loop: prompt, generate, read, judge/iterate. This module is where you actually get good at three of those four steps — the ones that are a skill, not just a click.</p>
+  <p><strong>By the end of this module, you'll be able to:</strong></p>
+  <ul id="objectives">
+    <li>Write a prompt that includes context, constraints, and a clear definition of "done"</li>
+    <li>Skim AI output the way a reviewer would: what changed, does it match intent, any red flags</li>
+    <li>Iterate with a specific follow-up instead of discarding the result and starting over</li>
+    <li>Know when to paste an error message back verbatim versus re-explaining the goal</li>
+  </ul>
+  <p><strong>Prerequisites:</strong> Module 01 — What Is Vibe Coding?</p>
+</section>
+
+<section class="block" id="key-terms-section">
+  <div class="sec-head"><span class="sec-num">·</span><h2>Key Terms</h2></div>
+  <div class="table-wrap">
+    <table id="key-terms">
+      <thead><tr><th>Term</th><th>Definition</th><th>First used in</th></tr></thead>
+      <tbody>
+        <tr><td>Context</td><td>The background the AI needs to give a useful answer — existing code, constraints, examples of the style you want.</td><td>s1</td></tr>
+        <tr><td>Constraint</td><td>A boundary on the solution: language, library, performance limit, or style rule.</td><td>s1</td></tr>
+        <tr><td>Diff</td><td>The specific lines that changed — the fastest way to review what an AI actually did, versus what it says it did.</td><td>s2</td></tr>
+        <tr><td>Scope creep</td><td>When each round of iteration quietly grows past the original ask.</td><td>s3</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="block" id="content">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Content Modules</h2></div>
+
+  <h3>s1 — Anatomy of a prompt that holds up</h3>
+  <p>A prompt that gets you a usable result on the first or second try tends to have four ingredients. You don't need all four every time — a throwaway script needs less than a customer-facing feature — but when a prompt fails, it's almost always missing one of these.</p>
+  <div class="card-grid">
+    <div class="card"><h4>Context</h4><p>What already exists. "Here's my current function" beats "write a function."</p></div>
+    <div class="card"><h4>Constraints</h4><p>The boundaries. Language, library, performance, style — say what's fixed.</p></div>
+    <div class="card"><h4>Example</h4><p>A concrete input/output pair removes more ambiguity than another paragraph of description.</p></div>
+    <div class="card"><h4>Success criteria</h4><p>How you'll know it's done: "the page loads," "the test passes," "handles an empty list."</p></div>
+  </div>
+  <div class="callout">
+    <div class="callout-mark">Before / after</div>
+    <p><strong>Before:</strong> "Add a login form." <strong>After:</strong> "Add a login form to this page (context: existing HTML pasted below) with email + password fields (constraint), matching the input style already used on the signup form (example), that shows an inline error on a failed login instead of a blank screen (success criteria)."</p>
+  </div>
+
+  <h3>s2 — Reading output like a reviewer, not a spectator</h3>
+  <p>The habit that separates people who get good results from people who get burned isn't a better prompt — it's what they do in the ten seconds after the output appears. Ask three questions before you accept anything:</p>
+  <ol>
+    <li><strong>What actually changed?</strong> Skim the diff, not the AI's summary of the diff. The summary can be wrong or incomplete.</li>
+    <li><strong>Does it match what I asked for?</strong> Not "does it look plausible" — does it satisfy the success criteria you set in s1.</li>
+    <li><strong>Any red flags?</strong> A function you don't recognize, an import that seems unrelated, an error being silently swallowed, a change to a file you didn't mention.</li>
+  </ol>
+  <p>This takes seconds once it's a habit. It's the single highest-leverage thing in this whole module.</p>
+
+  <h3>s3 — Iterating without starting over</h3>
+  <p>Most first outputs are close but not quite right. The instinct to throw it away and re-explain from scratch wastes the part that was already working. Reach for one of these instead:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pattern</th><th>When to use it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Narrow the ask</strong></td><td>The shape is right but one part is wrong — say exactly which part, leave the rest alone.</td></tr>
+        <tr><td><strong>Paste the error back verbatim</strong></td><td>Something broke and you have an actual error message — paste it exactly, don't paraphrase it.</td></tr>
+        <tr><td><strong>Ask for the reasoning</strong></td><td>The output looks odd but doesn't obviously fail — ask "why did you do it this way" before you decide.</td></tr>
+        <tr><td><strong>Ask for tests</strong></td><td>You're not sure the logic is right — ask for test cases, including edge cases, before you trust it.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn">
+    <div class="callout-mark">Watch for</div>
+    <p>Scope creep: three iterations in, check whether you're still solving the original problem or a bigger one you backed into. If it's bigger, that's fine — just say so out loud and reset expectations.</p>
+  </div>
+</section>
+
+<section class="block" id="activity">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Activity — What's Missing?</h2></div>
+  <p><strong>Type:</strong> Matching · <strong>Time:</strong> 12 min, individual then pair-share</p>
+  <p>Each prompt below is missing exactly one of the four ingredients from s1. Identify which one, then check your answers.</p>
+  <div class="activity-box" data-activity="match">
+    <div class="match-row" data-answer="constraints">
+      <span class="prompt-text">"Write a function that sorts a list of customer records."</span>
+      <select><option value="">Choose…</option><option value="context">Context</option><option value="constraints">Constraints</option><option value="example">Example</option><option value="success-criteria">Success criteria</option></select>
+      <div class="match-feedback ok">Right — sort by what field? Ascending or descending? That's a constraint.</div>
+      <div class="match-feedback bad">Reconsider — what's fixed here that the AI has to guess at?</div>
+    </div>
+    <div class="match-row" data-answer="example">
+      <span class="prompt-text">"Reformat this CSV data to match our standard layout." (no sample of "our standard layout" attached)</span>
+      <select><option value="">Choose…</option><option value="context">Context</option><option value="constraints">Constraints</option><option value="example">Example</option><option value="success-criteria">Success criteria</option></select>
+      <div class="match-feedback ok">Right — "our standard layout" only means something with a concrete sample.</div>
+      <div class="match-feedback bad">Reconsider — what concrete input/output would remove the guesswork here?</div>
+    </div>
+    <div class="match-row" data-answer="success-criteria">
+      <span class="prompt-text">"Fix the bug in the checkout flow." (no description of what "fixed" looks like)</span>
+      <select><option value="">Choose…</option><option value="context">Context</option><option value="constraints">Constraints</option><option value="example">Example</option><option value="success-criteria">Success criteria</option></select>
+      <div class="match-feedback ok">Right — how will you know it's actually fixed? That's missing.</div>
+      <div class="match-feedback bad">Reconsider — this prompt never says what "done" looks like.</div>
+    </div>
+    <div class="match-row" data-answer="context">
+      <span class="prompt-text">"Add input validation." (asked cold, with no existing code pasted in)</span>
+      <select><option value="">Choose…</option><option value="context">Context</option><option value="constraints">Constraints</option><option value="example">Example</option><option value="success-criteria">Success criteria</option></select>
+      <div class="match-feedback ok">Right — validation of what, added to what? There's nothing to anchor to.</div>
+      <div class="match-feedback bad">Reconsider — what existing material is missing from this prompt?</div>
+    </div>
+    <p style="margin-top:14px;">
+      <button class="btn" data-action="check-mapping">Check My Mapping</button>
+      <span class="match-score" style="margin-left:12px; font-family: var(--font-mono); font-size: 13px; color: var(--muted);"></span>
+    </p>
+  </div>
+</section>
+
+<section class="block" id="simulation">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Simulation — Prompt Lab: Iterating on a Bug</h2></div>
+  <p><strong>Model:</strong> you got a broken first output. <strong>Controls:</strong> pick how you'd follow up. <strong>Discussion trigger:</strong> which follow-up gets you to a fix fastest, and why?</p>
+  <p style="font-size:13px; color:var(--muted);">⚠ Simulation only — pre-written example outputs, not a live AI call.</p>
+  <div class="sim-box">
+    <p style="font-family:var(--font-mono); font-size:13px; color:var(--ink-soft); background:var(--code-bg); border:1px solid var(--line-soft); border-radius:8px; padding:12px 14px;">First output crashed with: <strong>TypeError: cannot read property 'email' of undefined</strong></p>
+    <div class="sim-controls">
+      <label for="iter-strategy">Your follow-up: </label>
+      <select id="iter-strategy">
+        <option value="restart">Start over: "That didn't work, write it again"</option>
+        <option value="vague">Vague: "It's still broken, fix it"</option>
+        <option value="pasted">Paste the exact error message back</option>
+      </select>
+    </div>
+    <div class="sim-readout" id="sim-readout">Select a follow-up above.</div>
+  </div>
+</section>
+
+<section class="block" id="review">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Review &amp; Knowledge Check</h2></div>
+  <form data-quiz>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">1. Which of the following is a "constraint" in a prompt?</div>
+      <label class="q-opt"><input type="radio" name="q1" data-correct="false"> A sample input/output pair</label>
+      <label class="q-opt"><input type="radio" name="q1" data-correct="true"> "Must use only the standard library, no new dependencies"</label>
+      <label class="q-opt"><input type="radio" name="q1" data-correct="false"> How you'll know the task is done</label>
+      <div class="quiz-feedback" data-correct-msg="Correct." data-incorrect-msg="Revisit s1 — a constraint is a boundary on the solution."></div>
+    </div>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">2. When reviewing output, what should you check first?</div>
+      <label class="q-opt"><input type="radio" name="q2" data-correct="false"> The AI's plain-English summary of what it did</label>
+      <label class="q-opt"><input type="radio" name="q2" data-correct="true"> The actual diff — what lines really changed</label>
+      <label class="q-opt"><input type="radio" name="q2" data-correct="false"> Whether it ran without an error</label>
+      <div class="quiz-feedback" data-correct-msg="Correct — summaries can be wrong or incomplete." data-incorrect-msg="Revisit s2 — the summary isn't the same as the diff."></div>
+    </div>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">3. You get an exact error message after running the code. What's the best next move?</div>
+      <label class="q-opt"><input type="radio" name="q3" data-correct="false"> Paraphrase the error in your own words</label>
+      <label class="q-opt"><input type="radio" name="q3" data-correct="true"> Paste the error message back verbatim</label>
+      <label class="q-opt"><input type="radio" name="q3" data-correct="false"> Start the whole prompt over</label>
+      <div class="quiz-feedback" data-correct-msg="Correct — exact error text carries information a paraphrase loses." data-incorrect-msg="Revisit s3's iteration patterns table."></div>
+    </div>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">4. What is "scope creep" in this context?</div>
+      <label class="q-opt"><input type="radio" name="q4" data-correct="false"> When a prompt is too short</label>
+      <label class="q-opt"><input type="radio" name="q4" data-correct="true"> When each iteration quietly grows past the original ask</label>
+      <label class="q-opt"><input type="radio" name="q4" data-correct="false"> When the AI refuses a request</label>
+      <div class="quiz-feedback" data-correct-msg="Correct." data-incorrect-msg="Revisit the callout at the end of s3."></div>
+    </div>
+    <p><button class="btn" type="button" data-action="grade-quiz">Grade My Quiz</button></p>
+    <p class="quiz-score"></p>
+  </form>
+</section>
+
+<section class="block" id="further-reading">
+  <div class="sec-head"><span class="sec-num">6</span><h2>Further Reading</h2></div>
+  <ul>
+    <li><a href="../reference/prompt-cheatsheet.html">Prompt Cheat Sheet</a> — the four ingredients from s1 and the iteration patterns from s3, on one page.</li>
+    <li>Optional take-home: pull up your last three prompts to any AI tool. Which of the four ingredients did you skip most often?</li>
+  </ul>
+</section>
+
+<section class="block" id="deliverables">
+  <div class="sec-head"><span class="sec-num">·</span><h2>Deliverables</h2></div>
+  <div class="deliverables">
+    <label><input type="checkbox"> Objectives checklist completed (see sidebar)</label>
+    <label><input type="checkbox"> What's Missing? activity checked</label>
+    <label><input type="checkbox"> Knowledge check quiz attempted</label>
+  </div>
+</section>
+
+<div class="prev-next">
+  <a class="prev" href="module-01.html"><span class="dir">Previous</span><span class="lbl">← Module 01 — What Is Vibe Coding?</span></a>
+  <a class="next" href="module-03.html"><span class="dir">Next</span><span class="lbl">Module 03 — Judgment &amp; Guardrails →</span></a>
+</div>
+
+</main>
+<aside class="sidebar"></aside>
+</div>
+
+<footer class="site-footer">
+  <a href="../index.html">← Back to Vibe Workshop hub</a>
+</footer>
+
+<script src="../shared/nav.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+  (function () {
+    var samples = {
+      restart: "You get a brand-new attempt from scratch — including re-losing the\n80% of the code that was already working. Often reproduces the\nsame bug, since the AI has no idea what actually broke.",
+      vague: "\"It's still broken, fix it\" gives the AI nothing to work from but\nthe same code and no error signal. Expect a guess, possibly a\ndifferent guess, possibly a new bug alongside the old one.",
+      pasted: "<span class=\"hl\">TypeError: cannot read property 'email' of undefined</span> pastes\ndirectly into the AI's next turn. Now it can trace exactly which\nvariable is undefined and why — usually a one-line, targeted fix\ninstead of a rewrite."
+    };
+    var select = document.getElementById("iter-strategy");
+    var readout = document.getElementById("sim-readout");
+    function render() { readout.innerHTML = samples[select.value]; }
+    select.addEventListener("change", render);
+    render();
+  })();
+</script>
+</body>
+</html>
