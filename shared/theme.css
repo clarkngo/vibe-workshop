@@ -315,10 +315,11 @@ select, input[type="text"] {
 .btn.secondary { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line); }
 .btn.secondary:hover { color: var(--accent-ink); border-color: var(--accent); }
 
-.match-row { display: flex; align-items: center; gap: 12px; margin: 8px 0; font-size: 14.5px; }
-.match-row .prompt-text { flex: 1; }
-.match-row select { min-width: 200px; }
-.match-feedback { font-size: 13px; margin-top: 4px; display: none; }
+.match-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0; padding: 12px 0; font-size: 14.5px; border-bottom: 1px solid var(--line-soft); }
+.match-row:last-of-type { border-bottom: none; }
+.match-row .prompt-text { flex: 1 1 240px; min-width: 200px; }
+.match-row select { flex: 0 0 auto; min-width: 180px; }
+.match-feedback { flex: 0 0 100%; font-size: 13px; display: none; }
 .match-row.correct .match-feedback.ok { display: block; color: var(--good); }
 .match-row.incorrect .match-feedback.bad { display: block; color: var(--bad); }
 
