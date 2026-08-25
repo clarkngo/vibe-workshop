@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prompt Builder · Vibe Workshop</title>
-<meta name="description" content="Two tools: assemble a well-formed coding prompt live using Module 02's framework, or generate the meta-prompt for drafting a new module page in this site's own style.">
+<meta name="description" content="Two tools: assemble a kickoff prompt for building a vibe-coded app using Module 02's framework, or generate the meta-prompt for drafting a new module page in this site's own style.">
 <style>
 /* Vibe Workshop — shared theme
    One stylesheet, one localStorage key (see nav.js), linked by every page.
@@ -386,14 +386,14 @@ html { scroll-behavior: smooth; }
     <div class="breadcrumb"><a href="index.html">Vibe Workshop</a> / Prompt Builder</div>
     <div class="eyebrow">Tool</div>
     <h1 class="title">Prompt Builder</h1>
-    <p class="dek">Two small tools, both entirely in your browser — nothing you type here is sent anywhere. Assemble a coding prompt for your own work, or generate the meta-prompt for drafting a new module in this site's own style.</p>
+    <p class="dek">Two small tools, both entirely in your browser — nothing you type here is sent anywhere. Assemble the kickoff prompt for a vibe-coded app you're actually about to build, or generate the meta-prompt for drafting a new module in this site's own style.</p>
   </div>
 </header>
 
 <nav class="toc-bar">
   <div class="toc-inner">
     <div class="toc-links">
-      <a class="toc-link" href="#build-prompt"><span>1</span>Build a Coding Prompt</a>
+      <a class="toc-link" href="#build-prompt"><span>1</span>Build a Vibe-Coded App</a>
       <a class="toc-link" href="#draft-module"><span>2</span>Draft a New Module</a>
     </div>
   </div>
@@ -403,34 +403,40 @@ html { scroll-behavior: smooth; }
 <main class="content">
 
 <section class="block" id="build-prompt">
-  <div class="sec-head"><span class="sec-num">1</span><h2>Build a Coding Prompt</h2></div>
-  <p>The four ingredients from <a href="module-02.html">Module 02</a>. Fill in whichever apply — you rarely need all four — and the prompt assembles itself below.</p>
+  <div class="sec-head"><span class="sec-num">1</span><h2>Build a Vibe-Coded App</h2></div>
+  <p>Not a single edit — a first prompt for actually kicking off an app with an AI coding tool. Uses the four ingredients from <a href="module-02.html">Module 02</a>, aimed at "start building this" instead of "fix this one thing." Fill in whichever apply — you rarely need all five — and the prompt assembles itself below.</p>
   <div class="activity-box">
-    <div style="display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div>
+      <label for="pb-task" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">What are you building? (one line)</label>
+      <textarea id="pb-task" rows="2" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="A tip-splitting calculator for a group dinner."></textarea>
+    </div>
+    <div style="display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top:14px;">
       <div>
-        <label for="pb-context" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Context — what already exists</label>
-        <textarea id="pb-context" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="Paste existing code, or describe the current state."></textarea>
+        <label for="pb-features" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Core features (one per line) — what it does, at minimum</label>
+        <textarea id="pb-features" rows="4" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="Enter a bill total and party size&#10;Split evenly or by custom shares&#10;Add a tip percentage"></textarea>
       </div>
       <div>
         <label for="pb-constraints" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Constraints — what's fixed</label>
-        <textarea id="pb-constraints" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="Language, library, performance, style rules."></textarea>
+        <textarea id="pb-constraints" rows="4" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="Plain HTML/CSS/JS, no build step, one file. Must work on mobile."></textarea>
       </div>
       <div>
-        <label for="pb-example" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Example — a concrete input/output</label>
-        <textarea id="pb-example" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="Given X, I want Y."></textarea>
+        <label for="pb-context" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Context — optional, for extending something started</label>
+        <textarea id="pb-context" rows="4" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="Leave blank if starting fresh. Otherwise paste the existing code or describe what's already built."></textarea>
       </div>
       <div>
-        <label for="pb-success" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Success criteria — how you'll know it's done</label>
-        <textarea id="pb-success" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="The test passes. The page loads. It handles an empty list."></textarea>
+        <label for="pb-success" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Success criteria — what a working first version looks like</label>
+        <textarea id="pb-success" rows="4" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="I can open it, enter a bill and party size, and get a correct per-person amount."></textarea>
       </div>
     </div>
-    <p style="margin-top:16px;"><strong>What am I trying to do?</strong></p>
-    <textarea id="pb-task" rows="2" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="One line: the actual ask."></textarea>
-    <div class="sim-readout" id="pb-output" style="margin-top:16px;">Fill in at least the task line above.</div>
+    <div class="sim-readout" id="pb-output" style="margin-top:16px;">Fill in at least "what are you building?" above.</div>
     <p style="margin-top:12px;">
       <button class="btn" id="pb-copy" type="button">Copy Prompt</button>
       <span id="pb-copy-status" style="margin-left:10px; font-size:13px; color:var(--muted);"></span>
     </p>
+  </div>
+  <div class="callout" style="margin-top:16px;">
+    <div class="callout-mark">Next</div>
+    <p>Run this in your AI tool. Read what comes back like a reviewer, not a spectator (Module 02's three questions). If something's off, don't restart from scratch — narrow the ask or paste the error back verbatim (Module 02's iteration patterns). That whole cycle is <a href="module-01.html">Module 01's loop</a> — you'll run it more than once before this is actually done.</p>
   </div>
 </section>
 
@@ -672,25 +678,28 @@ html { scroll-behavior: smooth; }
       }
     }
 
-    // --- Section 1: Build a Coding Prompt ---
-    var pbIds = ["pb-task", "pb-context", "pb-constraints", "pb-example", "pb-success"];
+    // --- Section 1: Build a Vibe-Coded App ---
+    var pbIds = ["pb-task", "pb-features", "pb-constraints", "pb-context", "pb-success"];
     var pbOutput = document.getElementById("pb-output");
     function renderPrompt() {
       var task = document.getElementById("pb-task").value.trim();
-      var context = document.getElementById("pb-context").value.trim();
+      var featuresRaw = document.getElementById("pb-features").value.trim();
       var constraints = document.getElementById("pb-constraints").value.trim();
-      var example = document.getElementById("pb-example").value.trim();
+      var context = document.getElementById("pb-context").value.trim();
       var success = document.getElementById("pb-success").value.trim();
-      if (!task && !context && !constraints && !example && !success) {
-        pbOutput.textContent = "Fill in at least the task line above.";
+      if (!task && !featuresRaw && !constraints && !context && !success) {
+        pbOutput.textContent = "Fill in at least \"what are you building?\" above.";
         return;
       }
       var parts = [];
-      if (task) parts.push(task);
-      if (context) parts.push("Context: " + context);
+      parts.push(task ? "I want to build: " + task : "I want to build: [describe the app]");
+      if (featuresRaw) {
+        var features = featuresRaw.split("\n").map(function (l) { return l.trim(); }).filter(Boolean).map(function (l) { return "- " + l; }).join("\n");
+        parts.push("Core features:\n" + features);
+      }
       if (constraints) parts.push("Constraints: " + constraints);
-      if (example) parts.push("Example: " + example);
-      if (success) parts.push("Success criteria: " + success);
+      if (context) parts.push("Context (what already exists): " + context);
+      if (success) parts.push("Success criteria for a first working version: " + success);
       pbOutput.textContent = parts.join("\n\n");
     }
     pbIds.forEach(function (id) {
