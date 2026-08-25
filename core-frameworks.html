@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vibe Coding: Building Software by Collaborating with AI</title>
-<meta name="description" content="A half-day workshop teaching a mixed technical/non-technical audience how to build software by collaborating with AI coding tools — prompting, reviewing, and knowing when to trust the output.">
+<title>Core Frameworks · Vibe Workshop</title>
+<meta name="description" content="The frameworks this workshop teaches and cites: the Vibe Coding Loop, Prompt Anatomy, the Blast-Radius Verification Model, and where they connect to NIST AI RMF and OWASP's LLM risk categories.">
 <style>
 /* Vibe Workshop — shared theme
    One stylesheet, one localStorage key (see nav.js), linked by every page.
@@ -380,27 +380,21 @@ html { scroll-behavior: smooth; }
       <a class="brand" href="index.html">Vibe Workshop</a>
       <div class="masthead-actions">
         <button class="icon-btn" data-action="toggle-theme">🌙 Dark</button>
+        <button class="icon-btn" data-action="print">🖶 Print</button>
       </div>
     </div>
-    <div class="eyebrow">Half-Day Workshop</div>
-    <h1 class="title">Vibe Coding: Building Software by Collaborating with AI</h1>
-    <p class="dek">A hands-on introduction to building software by working with an AI coding partner — how to prompt it, how to read what it hands back, and how to know when the output deserves your trust. Built for a room that mixes engineers with people who've never opened a terminal.</p>
-    <div class="source-strip">
-      <span><b>Format:</b> half-day, 4 modules</span>
-      <span><b>Audience:</b> mixed technical / non-technical</span>
-      <span><b>Archetype:</b> flat-file lesson site</span>
-    </div>
+    <div class="breadcrumb"><a href="index.html">Vibe Workshop</a> / Core Frameworks</div>
+    <div class="eyebrow">Reference</div>
+    <h1 class="title">Core Frameworks</h1>
+    <p class="dek">The models this workshop builds itself, plus the two external frameworks worth knowing if AI-assisted coding becomes a regular part of your work.</p>
   </div>
 </header>
 
 <nav class="toc-bar">
   <div class="toc-inner">
     <div class="toc-links">
-      <a class="toc-link" href="#responsible-use"><span>—</span>Responsible Use</a>
-      <a class="toc-link" href="#strands"><span>—</span>Strands</a>
-      <a class="toc-link" href="#modules"><span>—</span>Modules</a>
-      <a class="toc-link" href="#labs"><span>—</span>Labs</a>
-      <a class="toc-link" href="#resources"><span>—</span>Resources</a>
+      <a class="toc-link" href="#homegrown"><span>1</span>Built for This Workshop</a>
+      <a class="toc-link" href="#external"><span>2</span>External References</a>
     </div>
   </div>
 </nav>
@@ -408,103 +402,59 @@ html { scroll-behavior: smooth; }
 <div class="layout no-sidebar">
 <main class="content">
 
-<section class="block" id="responsible-use">
-  <div class="callout warn">
-    <div class="callout-mark">Before you start</div>
-    <p>Never paste secrets, credentials, customer data, or anything covered by an NDA into an AI tool. Read the <a href="responsible-use.html">Responsible Use policy</a> before Module 1 — it's short.</p>
-  </div>
-</section>
-
-<section class="block" id="strands">
-  <div class="sec-head"><span class="sec-num">Strands</span><h2>How the day is organized</h2></div>
-  <p>Four modules, one throughline: you'll leave able to run the loop — <strong>prompt, read, judge, iterate</strong> — on a real piece of work, not just a toy example.</p>
-  <div class="strand-row">
-    <span class="strand">Foundations — M1</span>
-    <span class="strand">Practice — M2</span>
-    <span class="strand">Judgment — M3</span>
-    <span class="strand">Capstone — M4</span>
-  </div>
-</section>
-
-<section class="block" id="modules">
-  <div class="sec-head"><span class="sec-num">Modules</span><h2>Today's four modules</h2></div>
+<section class="block" id="homegrown">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Built for This Workshop</h2></div>
+  <p>Three small models, each introduced in a module, each reusable on their own after the workshop ends.</p>
   <div class="card-grid">
-    <a class="card module-card" href="module-01.html">
-      <div class="num">Module 01 · 45 min</div>
-      <h4>What Is Vibe Coding?</h4>
-      <p>The loop, the mindset shift, and where it belongs versus where it's dangerous.</p>
-      <div class="meta">Foundations</div>
-    </a>
-    <a class="card module-card" href="module-02.html">
-      <div class="num">Module 02 · 60 min</div>
-      <h4>The Vibe Coding Loop: Prompt, Review, Iterate</h4>
-      <p>Writing prompts that hold up, reading output like a reviewer, iterating without starting over.</p>
-      <div class="meta">Practice</div>
-    </a>
-    <a class="card module-card is-stub" href="module-03.html">
-      <div class="num">Module 03 · 45 min</div>
-      <h4>Judgment &amp; Guardrails</h4>
-      <p>When to trust the output, when to verify it, and what "verify" means for non-engineers too.</p>
-      <div class="meta">Judgment · content in progress</div>
-    </a>
-    <a class="card module-card is-stub" href="module-04.html">
-      <div class="num">Module 04 · 75 min</div>
-      <h4>Capstone: Build Something Real</h4>
-      <p>Build, present, and get critiqued on a small real thing using everything from M1–M3.</p>
-      <div class="meta">Capstone · content in progress</div>
-    </a>
+    <div class="card">
+      <h4>The Vibe Coding Loop</h4>
+      <p><strong>From Module 01.</strong> Prompt → Generate → Read → Judge/Iterate. The four steps under every AI-assisted coding session — name the step that's failing when a session goes badly.</p>
+    </div>
+    <div class="card">
+      <h4>Prompt Anatomy</h4>
+      <p><strong>From Module 02.</strong> Context, Constraints, Example, Success Criteria — the four ingredients a prompt needs to hold up on the first or second try. See the <a href="prompt-cheatsheet.html">cheat sheet</a> or the <a href="prompt-builder.html">builder tool</a>.</p>
+    </div>
+    <div class="card">
+      <h4>Blast-Radius Verification Model</h4>
+      <p><strong>From Module 03.</strong> Scale verification effort — skim it, run it against an example, or get a second reviewer — to how much damage a wrong answer could do.</p>
+    </div>
   </div>
 </section>
 
-<section class="block" id="labs">
-  <div class="sec-head"><span class="sec-num">Labs</span><h2>Lab activities</h2></div>
-  <p>Deeper, longer follow-ups to three of the modules' inline activities — for a follow-up session or a room with extra time. See <a href="labs.html">all labs</a> for facilitation notes.</p>
-  <div class="card-grid">
-    <a class="card module-card" href="lab-01-rewrite-a-prompt.html">
-      <div class="num">Lab 01 · 20 min</div>
-      <h4>Rewrite a Prompt</h4>
-      <p>Rebuild your own real prompts with the four-ingredient framework, then run them.</p>
-    </a>
-    <a class="card module-card" href="lab-02-read-the-diff.html">
-      <div class="num">Lab 02 · 20 min</div>
-      <h4>Read the Diff</h4>
-      <p>Five realistic diffs, each with something wrong. Practice the three-question skim.</p>
-    </a>
-    <a class="card module-card" href="lab-03-blast-radius-audit.html">
-      <div class="num">Lab 03 · 25 min</div>
-      <h4>Blast-Radius Audit</h4>
-      <p>Score five real backlog items with Module 03's verification framework.</p>
-    </a>
-  </div>
-</section>
+<section class="block" id="external">
+  <div class="sec-head"><span class="sec-num">2</span><h2>External References</h2></div>
+  <p>Two published frameworks that overlap with what this workshop teaches. Neither is required reading for the half-day — they're here for anyone whose org wants a citable standard behind the judgment calls in Module 03.</p>
 
-<section class="block" id="resources">
-  <div class="sec-head"><span class="sec-num">Resources</span><h2>For facilitators &amp; participants</h2></div>
-  <div class="card-grid">
-    <a class="card" href="faculty-resources.html">
-      <h4>Faculty Resources</h4>
-      <p>Teaching guide, responsible-use policy, assessment bank, room setup, and pre-work email — all in one place, instructor only.</p>
-    </a>
-    <a class="card" href="core-frameworks.html">
-      <h4>Core Frameworks</h4>
-      <p>The workshop's own models, plus where they connect to NIST AI RMF and OWASP's LLM risk categories.</p>
-    </a>
-    <a class="card" href="prompt-builder.html">
-      <h4>Prompt Builder</h4>
-      <p>Assemble a coding prompt live, or generate the meta-prompt for drafting a new module.</p>
-    </a>
-    <a class="card" href="prompt-cheatsheet.html">
-      <h4>Prompt Cheat Sheet</h4>
-      <p>The reusable prompt patterns from Module 2, on one page for the walk back to your desk.</p>
-    </a>
+  <h3>NIST AI Risk Management Framework (AI RMF 1.0)</h3>
+  <p>A voluntary framework from the U.S. National Institute of Standards and Technology for managing risk across an AI system's lifecycle, organized into four functions:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Function</th><th>What it covers</th><th>Where this workshop touches it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Govern</strong></td><td>Culture and process for managing AI risk — policies, accountability</td><td>Module 00 / <a href="responsible-use.html">Responsible Use Policy</a></td></tr>
+        <tr><td><strong>Map</strong></td><td>Understanding context and identifying risks for a specific use</td><td>Module 03's blast-radius sorting</td></tr>
+        <tr><td><strong>Measure</strong></td><td>Assessing and tracking identified risks</td><td>Module 03's verification checklist</td></tr>
+        <tr><td><strong>Manage</strong></td><td>Prioritizing and acting on risk based on the measurement</td><td>Module 03's "who to loop in" activity</td></tr>
+      </tbody>
+    </table>
   </div>
+  <p style="font-size:13px; color:var(--muted);">This workshop's frameworks are a lightweight, half-day-scale version of the same idea, not a substitute for reading the actual NIST publication if your org needs to cite it formally.</p>
+
+  <h3>OWASP Top 10 for LLM Applications</h3>
+  <p>A community-maintained list of the most common security risks specific to applications built on large language models. Relevant here because "vibe coding" often means building <em>with</em> an LLM and sometimes means building applications <em>that call</em> one. A few categories that show up most in workshop-scale work:</p>
+  <ul>
+    <li><strong>Prompt Injection</strong> — untrusted input that gets treated as an instruction rather than data. Relevant the moment your AI-assisted app processes text from outside users.</li>
+    <li><strong>Insecure Output Handling</strong> — trusting AI-generated output (code, HTML, SQL) without the same validation you'd apply to any other untrusted input.</li>
+    <li><strong>Sensitive Information Disclosure</strong> — the flip side of this workshop's <a href="responsible-use.html">Responsible Use Policy</a>: what goes into a prompt can come back out somewhere you didn't expect.</li>
+  </ul>
+  <p style="font-size:13px; color:var(--muted);">The full, current list moves as the risk landscape does — treat the three above as a taste, not the complete set, and check OWASP's own materials before citing this formally.</p>
 </section>
 
 </main>
 </div>
 
 <footer class="site-footer">
-  Structure adapted from the <a href="https://sands-mvcc.github.io/ot/">sands-mvcc/ot</a> flat-file lesson site archetype — see the <a href="../workshop-archetypes/index.html">archetype blueprint</a> this course follows. Scaled down from a 5-day, 12-lesson format to a half-day, 4-module format for a mixed audience.
+  <a href="index.html">← Back to Vibe Workshop hub</a>
 </footer>
 
 <script>

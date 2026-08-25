@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vibe Coding: Building Software by Collaborating with AI</title>
-<meta name="description" content="A half-day workshop teaching a mixed technical/non-technical audience how to build software by collaborating with AI coding tools — prompting, reviewing, and knowing when to trust the output.">
+<title>Lab 02 — Read the Diff · Vibe Workshop</title>
+<meta name="description" content="Hands-on lab: five realistic diffs, each with something wrong. Practice the three-question review skim from Module 02.">
 <style>
 /* Vibe Workshop — shared theme
    One stylesheet, one localStorage key (see nav.js), linked by every page.
@@ -380,131 +380,112 @@ html { scroll-behavior: smooth; }
       <a class="brand" href="index.html">Vibe Workshop</a>
       <div class="masthead-actions">
         <button class="icon-btn" data-action="toggle-theme">🌙 Dark</button>
+        <button class="icon-btn" data-action="print">🖶 Print</button>
       </div>
     </div>
-    <div class="eyebrow">Half-Day Workshop</div>
-    <h1 class="title">Vibe Coding: Building Software by Collaborating with AI</h1>
-    <p class="dek">A hands-on introduction to building software by working with an AI coding partner — how to prompt it, how to read what it hands back, and how to know when the output deserves your trust. Built for a room that mixes engineers with people who've never opened a terminal.</p>
-    <div class="source-strip">
-      <span><b>Format:</b> half-day, 4 modules</span>
-      <span><b>Audience:</b> mixed technical / non-technical</span>
-      <span><b>Archetype:</b> flat-file lesson site</span>
+    <div class="breadcrumb"><a href="index.html">Vibe Workshop</a> / <a href="labs.html">Labs</a> / Lab 02</div>
+    <div class="eyebrow">Lab · Ties to Modules 02–03</div>
+    <h1 class="title">Read the Diff</h1>
+    <p class="dek">Five realistic diffs. Each one has something wrong. Apply Module 02's three-question skim — what changed, does it match intent, any red flags — to each before revealing the answer.</p>
+    <div class="meta-row">
+      <span><b>Duration:</b> 20 min</span>
+      <span><b>Group size:</b> individual or pairs</span>
+      <span><b>Needs:</b> nothing — read on screen or print</span>
     </div>
   </div>
 </header>
 
-<nav class="toc-bar">
-  <div class="toc-inner">
-    <div class="toc-links">
-      <a class="toc-link" href="#responsible-use"><span>—</span>Responsible Use</a>
-      <a class="toc-link" href="#strands"><span>—</span>Strands</a>
-      <a class="toc-link" href="#modules"><span>—</span>Modules</a>
-      <a class="toc-link" href="#labs"><span>—</span>Labs</a>
-      <a class="toc-link" href="#resources"><span>—</span>Resources</a>
-    </div>
-  </div>
-</nav>
-
 <div class="layout no-sidebar">
 <main class="content">
 
-<section class="block" id="responsible-use">
-  <div class="callout warn">
-    <div class="callout-mark">Before you start</div>
-    <p>Never paste secrets, credentials, customer data, or anything covered by an NDA into an AI tool. Read the <a href="responsible-use.html">Responsible Use policy</a> before Module 1 — it's short.</p>
-  </div>
+<section class="block">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Diff A — "add input validation to the signup form"</h2></div>
+  <div class="pre-wrap"><pre>  function validateEmail(input) {
++   if (input === null) {
++     return false;
++   }
+    return true;
+  }</pre></div>
+  <details><summary>Reveal what's wrong</summary>
+    <p>It checks for <code>null</code> but not an empty string, whitespace, or a malformed address — it will accept <code>""</code> as valid. The change matches the words of the request ("add validation") without matching the intent (reject bad emails).</p>
+  </details>
 </section>
 
-<section class="block" id="strands">
-  <div class="sec-head"><span class="sec-num">Strands</span><h2>How the day is organized</h2></div>
-  <p>Four modules, one throughline: you'll leave able to run the loop — <strong>prompt, read, judge, iterate</strong> — on a real piece of work, not just a toy example.</p>
-  <div class="strand-row">
-    <span class="strand">Foundations — M1</span>
-    <span class="strand">Practice — M2</span>
-    <span class="strand">Judgment — M3</span>
-    <span class="strand">Capstone — M4</span>
-  </div>
+<section class="block">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Diff B — "fix the date formatting bug on the invoice page"</h2></div>
+  <div class="pre-wrap"><pre>  import { formatDate } from './utils/date';
++ import { sendAnalyticsEvent } from './utils/analytics';
+
+  function renderInvoiceDate(invoice) {
++   sendAnalyticsEvent('invoice_viewed', { id: invoice.id });
+    return formatDate(invoice.date);
+  }</pre></div>
+  <details><summary>Reveal what's wrong</summary>
+    <p>An analytics call was added that has nothing to do with date formatting — scope creep, and a new side effect (a network call, on every render) that nobody asked for and nobody's reviewing for correctness.</p>
+  </details>
 </section>
 
-<section class="block" id="modules">
-  <div class="sec-head"><span class="sec-num">Modules</span><h2>Today's four modules</h2></div>
-  <div class="card-grid">
-    <a class="card module-card" href="module-01.html">
-      <div class="num">Module 01 · 45 min</div>
-      <h4>What Is Vibe Coding?</h4>
-      <p>The loop, the mindset shift, and where it belongs versus where it's dangerous.</p>
-      <div class="meta">Foundations</div>
-    </a>
-    <a class="card module-card" href="module-02.html">
-      <div class="num">Module 02 · 60 min</div>
-      <h4>The Vibe Coding Loop: Prompt, Review, Iterate</h4>
-      <p>Writing prompts that hold up, reading output like a reviewer, iterating without starting over.</p>
-      <div class="meta">Practice</div>
-    </a>
-    <a class="card module-card is-stub" href="module-03.html">
-      <div class="num">Module 03 · 45 min</div>
-      <h4>Judgment &amp; Guardrails</h4>
-      <p>When to trust the output, when to verify it, and what "verify" means for non-engineers too.</p>
-      <div class="meta">Judgment · content in progress</div>
-    </a>
-    <a class="card module-card is-stub" href="module-04.html">
-      <div class="num">Module 04 · 75 min</div>
-      <h4>Capstone: Build Something Real</h4>
-      <p>Build, present, and get critiqued on a small real thing using everything from M1–M3.</p>
-      <div class="meta">Capstone · content in progress</div>
-    </a>
-  </div>
+<section class="block">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Diff C — "handle the case where the API call fails"</h2></div>
+  <div class="pre-wrap"><pre>  async function loadProfile(userId) {
++   try {
+      const res = await fetch(`/api/users/${userId}`);
+      return await res.json();
++   } catch (err) {
++     console.log('profile load failed');
++     return {};
++   }
+  }</pre></div>
+  <details><summary>Reveal what's wrong</summary>
+    <p>It "handles" the failure by silently returning an empty object — every caller downstream now gets a profile with no fields and no signal anything went wrong. This is the hallmark of an error being swallowed instead of handled.</p>
+  </details>
 </section>
 
-<section class="block" id="labs">
-  <div class="sec-head"><span class="sec-num">Labs</span><h2>Lab activities</h2></div>
-  <p>Deeper, longer follow-ups to three of the modules' inline activities — for a follow-up session or a room with extra time. See <a href="labs.html">all labs</a> for facilitation notes.</p>
-  <div class="card-grid">
-    <a class="card module-card" href="lab-01-rewrite-a-prompt.html">
-      <div class="num">Lab 01 · 20 min</div>
-      <h4>Rewrite a Prompt</h4>
-      <p>Rebuild your own real prompts with the four-ingredient framework, then run them.</p>
-    </a>
-    <a class="card module-card" href="lab-02-read-the-diff.html">
-      <div class="num">Lab 02 · 20 min</div>
-      <h4>Read the Diff</h4>
-      <p>Five realistic diffs, each with something wrong. Practice the three-question skim.</p>
-    </a>
-    <a class="card module-card" href="lab-03-blast-radius-audit.html">
-      <div class="num">Lab 03 · 25 min</div>
-      <h4>Blast-Radius Audit</h4>
-      <p>Score five real backlog items with Module 03's verification framework.</p>
-    </a>
-  </div>
+<section class="block">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Diff D — "connect this to the weather API"</h2></div>
+  <div class="pre-wrap"><pre>  function getForecast(city) {
++   const apiKey = "wk_live_9f2a7c1e4b8d3a20";
+    return fetch(`https://api.example.com/forecast?city=${city}&key=${apiKey}`);
+  }</pre></div>
+  <details><summary>Reveal what's wrong</summary>
+    <p>A live API key hardcoded directly into source. Anyone with repo access — or anyone who finds it in a public commit — has it now. This is exactly the class of thing the <a href="responsible-use.html">Responsible Use Policy</a> warns about, just going the other direction: out of the code instead of into a prompt.</p>
+  </details>
 </section>
 
-<section class="block" id="resources">
-  <div class="sec-head"><span class="sec-num">Resources</span><h2>For facilitators &amp; participants</h2></div>
-  <div class="card-grid">
-    <a class="card" href="faculty-resources.html">
-      <h4>Faculty Resources</h4>
-      <p>Teaching guide, responsible-use policy, assessment bank, room setup, and pre-work email — all in one place, instructor only.</p>
-    </a>
-    <a class="card" href="core-frameworks.html">
-      <h4>Core Frameworks</h4>
-      <p>The workshop's own models, plus where they connect to NIST AI RMF and OWASP's LLM risk categories.</p>
-    </a>
-    <a class="card" href="prompt-builder.html">
-      <h4>Prompt Builder</h4>
-      <p>Assemble a coding prompt live, or generate the meta-prompt for drafting a new module.</p>
-    </a>
-    <a class="card" href="prompt-cheatsheet.html">
-      <h4>Prompt Cheat Sheet</h4>
-      <p>The reusable prompt patterns from Module 2, on one page for the walk back to your desk.</p>
-    </a>
-  </div>
+<section class="block">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Diff E — "rename the `total` variable to `orderTotal` for clarity"</h2></div>
+  <div class="pre-wrap"><pre>- function calculateTotal(items) { ... }
++ function calculateOrderTotal(items) { ... }
+
+- const total = calculateTotal(cart);
++ const orderTotal = calculateOrderTotal(cart);
+
+- exports.calculateTotal = calculateTotal;
++ exports.calculateOrderTotal = calculateOrderTotal;</pre></div>
+  <details><summary>Reveal what's wrong</summary>
+    <p>Maybe nothing — but check: is <code>calculateTotal</code> exported and used elsewhere in the codebase? A rename that crosses a module boundary can silently break every other file that imports the old name. "Looks right" here depends on information this diff alone doesn't show you.</p>
+  </details>
+</section>
+
+<section class="block">
+  <div class="sec-head"><span class="sec-num">·</span><h2>Debrief</h2></div>
+  <ul>
+    <li>Which diff took you longest to catch? What made it harder than the others?</li>
+    <li>Which of the three questions (what changed / matches intent / red flags) caught each one?</li>
+    <li>Diff E is a trick — it might be totally fine. What would you actually need to check before approving it?</li>
+  </ul>
 </section>
 
 </main>
 </div>
 
+<div class="prev-next">
+  <a class="prev" href="lab-01-rewrite-a-prompt.html"><span class="dir">Previous</span><span class="lbl">← Lab 01 — Rewrite a Prompt</span></a>
+  <a class="next" href="lab-03-blast-radius-audit.html"><span class="dir">Next</span><span class="lbl">Lab 03 — Blast-Radius Audit →</span></a>
+</div>
+
 <footer class="site-footer">
-  Structure adapted from the <a href="https://sands-mvcc.github.io/ot/">sands-mvcc/ot</a> flat-file lesson site archetype — see the <a href="../workshop-archetypes/index.html">archetype blueprint</a> this course follows. Scaled down from a 5-day, 12-lesson format to a half-day, 4-module format for a mixed audience.
+  <a href="index.html">← Back to Vibe Workshop hub</a>
 </footer>
 
 <script>

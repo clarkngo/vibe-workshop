@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vibe Coding: Building Software by Collaborating with AI</title>
-<meta name="description" content="A half-day workshop teaching a mixed technical/non-technical audience how to build software by collaborating with AI coding tools — prompting, reviewing, and knowing when to trust the output.">
+<title>Teaching Guide · Vibe Workshop</title>
+<meta name="description" content="Instructor-only facilitation guide: schedule, pacing notes per module, common misconceptions, and a dated link audit.">
 <style>
 /* Vibe Workshop — shared theme
    One stylesheet, one localStorage key (see nav.js), linked by every page.
@@ -380,27 +380,23 @@ html { scroll-behavior: smooth; }
       <a class="brand" href="index.html">Vibe Workshop</a>
       <div class="masthead-actions">
         <button class="icon-btn" data-action="toggle-theme">🌙 Dark</button>
+        <button class="icon-btn" data-action="print">🖶 Print</button>
       </div>
     </div>
-    <div class="eyebrow">Half-Day Workshop</div>
-    <h1 class="title">Vibe Coding: Building Software by Collaborating with AI</h1>
-    <p class="dek">A hands-on introduction to building software by working with an AI coding partner — how to prompt it, how to read what it hands back, and how to know when the output deserves your trust. Built for a room that mixes engineers with people who've never opened a terminal.</p>
-    <div class="source-strip">
-      <span><b>Format:</b> half-day, 4 modules</span>
-      <span><b>Audience:</b> mixed technical / non-technical</span>
-      <span><b>Archetype:</b> flat-file lesson site</span>
-    </div>
+    <div class="breadcrumb"><a href="index.html">Vibe Workshop</a> / Instructor / Teaching Guide</div>
+    <div class="eyebrow">Instructor Only</div>
+    <h1 class="title">Teaching Guide</h1>
+    <p class="dek">Schedule, per-module facilitation notes, misconceptions to watch for, and a dated audit of every link on this site.</p>
   </div>
 </header>
 
 <nav class="toc-bar">
   <div class="toc-inner">
     <div class="toc-links">
-      <a class="toc-link" href="#responsible-use"><span>—</span>Responsible Use</a>
-      <a class="toc-link" href="#strands"><span>—</span>Strands</a>
-      <a class="toc-link" href="#modules"><span>—</span>Modules</a>
-      <a class="toc-link" href="#labs"><span>—</span>Labs</a>
-      <a class="toc-link" href="#resources"><span>—</span>Resources</a>
+      <a class="toc-link" href="#schedule"><span>1</span>Schedule</a>
+      <a class="toc-link" href="#facilitation"><span>2</span>Facilitation Notes</a>
+      <a class="toc-link" href="#misconceptions"><span>3</span>Misconceptions</a>
+      <a class="toc-link" href="#link-audit"><span>4</span>Link Audit</a>
     </div>
   </div>
 </nav>
@@ -408,95 +404,82 @@ html { scroll-behavior: smooth; }
 <div class="layout no-sidebar">
 <main class="content">
 
-<section class="block" id="responsible-use">
+<section class="block" id="schedule">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Schedule (half day, ~4.5 hrs wall clock)</h2></div>
+  <p>Times are illustrative — anchor to your own start time. Built for a single continuous half-day block, not split across two days.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Time</th><th>Block</th><th>Duration</th></tr></thead>
+      <tbody>
+        <tr><td>9:00</td><td>Welcome + everyone reads the <a href="responsible-use.html">Responsible Use Policy</a></td><td>10 min</td></tr>
+        <tr><td>9:10</td><td>Module 01 — What Is Vibe Coding?</td><td>45 min</td></tr>
+        <tr><td>9:55</td><td>Break</td><td>10 min</td></tr>
+        <tr><td>10:05</td><td>Module 02 — The Vibe Coding Loop</td><td>60 min</td></tr>
+        <tr><td>11:05</td><td>Break</td><td>10 min</td></tr>
+        <tr><td>11:15</td><td>Module 03 — Judgment &amp; Guardrails</td><td>45 min</td></tr>
+        <tr><td>12:00</td><td>Break</td><td>10 min</td></tr>
+        <tr><td>12:10</td><td>Module 04 — Capstone</td><td>75 min</td></tr>
+        <tr><td>1:25</td><td>Wrap-up, deliverables check</td><td>5 min</td></tr>
+      </tbody>
+    </table>
+  </div>
   <div class="callout warn">
-    <div class="callout-mark">Before you start</div>
-    <p>Never paste secrets, credentials, customer data, or anything covered by an NDA into an AI tool. Read the <a href="responsible-use.html">Responsible Use policy</a> before Module 1 — it's short.</p>
+    <div class="callout-mark">Pacing risk</div>
+    <p>Module 04 is the single largest block and the one most likely to run long, since "build" time compresses for anyone whose real task turns out bigger than expected. If you're tight on time, protect the Critique step (4) over extending Build (2) — critique is where the judgment skills from Module 3 actually get exercised.</p>
   </div>
 </section>
 
-<section class="block" id="strands">
-  <div class="sec-head"><span class="sec-num">Strands</span><h2>How the day is organized</h2></div>
-  <p>Four modules, one throughline: you'll leave able to run the loop — <strong>prompt, read, judge, iterate</strong> — on a real piece of work, not just a toy example.</p>
-  <div class="strand-row">
-    <span class="strand">Foundations — M1</span>
-    <span class="strand">Practice — M2</span>
-    <span class="strand">Judgment — M3</span>
-    <span class="strand">Capstone — M4</span>
-  </div>
+<section class="block" id="facilitation">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Per-Module Facilitation Notes</h2></div>
+
+  <h3>Module 01 — What Is Vibe Coding?</h3>
+  <p>Non-technical participants sometimes assume this module is "not for them." Frame it early: the loop (prompt → generate → read → judge) applies whether or not you can read the generated code — Module 3 makes that explicit, but it's worth a one-line preview here.</p>
+
+  <h3>Module 02 — The Vibe Coding Loop</h3>
+  <p>This is the densest module. If the room is running behind, the Simulation (s2) is the safest thing to shorten — walk through one prompt level live instead of all three. Do not cut the Activity; "What's Missing?" is what makes s1 stick.</p>
+
+  <h3>Module 03 — Judgment &amp; Guardrails</h3>
+  <p>Watch for participants picking a trivially low-stakes example for the "Name the Blast Radius" activity to avoid a harder conversation. Gently push at least one pair per room toward a real medium/high-stakes example — that's where the module's actual value shows up.</p>
+
+  <h3>Module 04 — Capstone</h3>
+  <p>The biggest facilitation risk is scope: participants pick a task too big for 35 minutes of build time. Circulate at the 10-minute mark and flag anyone whose stated success criteria look like a multi-day project, before they've sunk build time into it.</p>
 </section>
 
-<section class="block" id="modules">
-  <div class="sec-head"><span class="sec-num">Modules</span><h2>Today's four modules</h2></div>
-  <div class="card-grid">
-    <a class="card module-card" href="module-01.html">
-      <div class="num">Module 01 · 45 min</div>
-      <h4>What Is Vibe Coding?</h4>
-      <p>The loop, the mindset shift, and where it belongs versus where it's dangerous.</p>
-      <div class="meta">Foundations</div>
-    </a>
-    <a class="card module-card" href="module-02.html">
-      <div class="num">Module 02 · 60 min</div>
-      <h4>The Vibe Coding Loop: Prompt, Review, Iterate</h4>
-      <p>Writing prompts that hold up, reading output like a reviewer, iterating without starting over.</p>
-      <div class="meta">Practice</div>
-    </a>
-    <a class="card module-card is-stub" href="module-03.html">
-      <div class="num">Module 03 · 45 min</div>
-      <h4>Judgment &amp; Guardrails</h4>
-      <p>When to trust the output, when to verify it, and what "verify" means for non-engineers too.</p>
-      <div class="meta">Judgment · content in progress</div>
-    </a>
-    <a class="card module-card is-stub" href="module-04.html">
-      <div class="num">Module 04 · 75 min</div>
-      <h4>Capstone: Build Something Real</h4>
-      <p>Build, present, and get critiqued on a small real thing using everything from M1–M3.</p>
-      <div class="meta">Capstone · content in progress</div>
-    </a>
-  </div>
+<section class="block" id="misconceptions">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Misconceptions to Watch For</h2></div>
+  <ul>
+    <li><strong>"Vibe coding means never reading the code."</strong> No — Module 2 exists specifically because review effort shifts, it doesn't disappear.</li>
+    <li><strong>"If it runs without an error, it's correct."</strong> No — Module 1's hallucination point and Module 3's verification point both push directly against this.</li>
+    <li><strong>"Non-technical people can't verify anything."</strong> No — Module 3 s1 gives non-code verification paths explicitly. Call this out if you see it come up.</li>
+    <li><strong>"More iterations always make it better."</strong> No — Module 2's scope-creep warning. More iterations without a stated success criteria drift, they don't converge.</li>
+  </ul>
 </section>
 
-<section class="block" id="labs">
-  <div class="sec-head"><span class="sec-num">Labs</span><h2>Lab activities</h2></div>
-  <p>Deeper, longer follow-ups to three of the modules' inline activities — for a follow-up session or a room with extra time. See <a href="labs.html">all labs</a> for facilitation notes.</p>
-  <div class="card-grid">
-    <a class="card module-card" href="lab-01-rewrite-a-prompt.html">
-      <div class="num">Lab 01 · 20 min</div>
-      <h4>Rewrite a Prompt</h4>
-      <p>Rebuild your own real prompts with the four-ingredient framework, then run them.</p>
-    </a>
-    <a class="card module-card" href="lab-02-read-the-diff.html">
-      <div class="num">Lab 02 · 20 min</div>
-      <h4>Read the Diff</h4>
-      <p>Five realistic diffs, each with something wrong. Practice the three-question skim.</p>
-    </a>
-    <a class="card module-card" href="lab-03-blast-radius-audit.html">
-      <div class="num">Lab 03 · 25 min</div>
-      <h4>Blast-Radius Audit</h4>
-      <p>Score five real backlog items with Module 03's verification framework.</p>
-    </a>
-  </div>
-</section>
-
-<section class="block" id="resources">
-  <div class="sec-head"><span class="sec-num">Resources</span><h2>For facilitators &amp; participants</h2></div>
-  <div class="card-grid">
-    <a class="card" href="faculty-resources.html">
-      <h4>Faculty Resources</h4>
-      <p>Teaching guide, responsible-use policy, assessment bank, room setup, and pre-work email — all in one place, instructor only.</p>
-    </a>
-    <a class="card" href="core-frameworks.html">
-      <h4>Core Frameworks</h4>
-      <p>The workshop's own models, plus where they connect to NIST AI RMF and OWASP's LLM risk categories.</p>
-    </a>
-    <a class="card" href="prompt-builder.html">
-      <h4>Prompt Builder</h4>
-      <p>Assemble a coding prompt live, or generate the meta-prompt for drafting a new module.</p>
-    </a>
-    <a class="card" href="prompt-cheatsheet.html">
-      <h4>Prompt Cheat Sheet</h4>
-      <p>The reusable prompt patterns from Module 2, on one page for the walk back to your desk.</p>
-    </a>
+<section class="block" id="link-audit">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Link Audit</h2></div>
+  <p>Every internal link on this site, checked <strong>2026-08-25</strong>. Update this table whenever you add or rename a page — an unlinked promise is how content drift starts (see the archetype blueprint's own findings on this). All targets are flat, root-level files — this site has no subfolders, matching how the source course is actually built.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Link</th><th>Target</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Hub → 4 module cards</td><td><code>module-01.html</code>–<code>04.html</code></td><td>OK — all exist</td></tr>
+        <tr><td>Hub → 3 lab cards</td><td><code>lab-01</code>–<code>03-*.html</code></td><td>OK — all exist</td></tr>
+        <tr><td>Hub → Faculty Resources</td><td><code>faculty-resources.html</code></td><td>OK</td></tr>
+        <tr><td>Hub → Core Frameworks</td><td><code>core-frameworks.html</code></td><td>OK</td></tr>
+        <tr><td>Hub → Prompt Builder</td><td><code>prompt-builder.html</code></td><td>OK</td></tr>
+        <tr><td>Hub → Prompt Cheat Sheet</td><td><code>prompt-cheatsheet.html</code></td><td>OK</td></tr>
+        <tr><td>Faculty Resources → Teaching Guide, Responsible Use, Assessment Bank, Prompt Builder, Core Frameworks, Labs</td><td>6 root files</td><td>OK — all exist</td></tr>
+        <tr><td>Labs hub → 3 lab pages, and each lab's prev/next chain</td><td><code>lab-01</code> → <code>02</code> → <code>03</code></td><td>OK — linear chain, no gaps</td></tr>
+        <tr><td>Module pages → prev/next chain</td><td><code>module-01</code> → <code>02</code> → <code>03</code> → <code>04</code></td><td>OK — linear chain, no gaps</td></tr>
+        <tr><td>Module 02 → Prompt Cheat Sheet</td><td><code>prompt-cheatsheet.html</code></td><td>OK</td></tr>
+        <tr><td>Module 02 → Prompt Builder</td><td><code>prompt-builder.html</code></td><td>OK</td></tr>
+        <tr><td>Module 03 → Responsible Use</td><td><code>responsible-use.html</code></td><td>OK</td></tr>
+        <tr><td>Module 04 → Teaching Guide</td><td><code>teaching-guide.html</code></td><td>OK (this page)</td></tr>
+        <tr><td>Core Frameworks → Prompt Cheat Sheet, Prompt Builder, Responsible Use</td><td>3 root files</td><td>OK</td></tr>
+        <tr><td>Lab 02 → Responsible Use</td><td><code>responsible-use.html</code></td><td>OK</td></tr>
+        <tr><td>Standalone <code>simulators/</code>, <code>tools/</code> pages from the archetype blueprint</td><td>—</td><td><strong>Deliberately not built as separate pages</strong> — <code>tools/</code>'s role is covered by <code>prompt-builder.html</code>'s module-drafting tab; standalone deep-dive <code>simulators/</code> still skipped, see root <a href="README.md">README</a></td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -504,7 +487,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <footer class="site-footer">
-  Structure adapted from the <a href="https://sands-mvcc.github.io/ot/">sands-mvcc/ot</a> flat-file lesson site archetype — see the <a href="../workshop-archetypes/index.html">archetype blueprint</a> this course follows. Scaled down from a 5-day, 12-lesson format to a half-day, 4-module format for a mixed audience.
+  <a href="index.html">← Back to Vibe Workshop hub</a>
 </footer>
 
 <script>
