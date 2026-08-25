@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vibe Coding: Building Software by Collaborating with AI</title>
-<meta name="description" content="A half-day workshop teaching a mixed technical/non-technical audience how to build software by collaborating with AI coding tools — prompting, reviewing, and knowing when to trust the output.">
+<title>Module 03 — Judgment &amp; Guardrails · Vibe Workshop</title>
+<meta name="description" content="Judgment module: the difference between output that looks right and output that's verified, and a checklist scaled to how much a wrong answer would cost.">
 <style>
 /* Vibe Workshop — shared theme
    One stylesheet, one localStorage key (see nav.js), linked by every page.
@@ -372,7 +372,7 @@ html { scroll-behavior: smooth; }
 
 </style>
 </head>
-<body>
+<body data-module-id="module-03">
 
 <header class="masthead">
   <div class="masthead-inner">
@@ -380,15 +380,17 @@ html { scroll-behavior: smooth; }
       <a class="brand" href="index.html">Vibe Workshop</a>
       <div class="masthead-actions">
         <button class="icon-btn" data-action="toggle-theme">🌙 Dark</button>
+        <button class="icon-btn" data-action="print">🖶 Print</button>
       </div>
     </div>
-    <div class="eyebrow">Half-Day Workshop</div>
-    <h1 class="title">Vibe Coding: Building Software by Collaborating with AI</h1>
-    <p class="dek">A hands-on introduction to building software by working with an AI coding partner — how to prompt it, how to read what it hands back, and how to know when the output deserves your trust. Built for a room that mixes engineers with people who've never opened a terminal.</p>
-    <div class="source-strip">
-      <span><b>Format:</b> half-day, 4 modules</span>
-      <span><b>Audience:</b> mixed technical / non-technical</span>
-      <span><b>Archetype:</b> flat-file lesson site</span>
+    <div class="breadcrumb"><a href="index.html">Vibe Workshop</a> / Module 03</div>
+    <div class="eyebrow">Judgment · Module 3 of 4</div>
+    <h1 class="title">Judgment &amp; Guardrails</h1>
+    <p class="dek">When to trust AI output, when to verify it, and what "verify" means for people who don't read code.</p>
+    <div class="meta-row">
+      <span><b>Duration:</b> 45 min</span>
+      <span><b>Difficulty:</b> Introductory</span>
+      <span><b>Strand:</b> Judgment</span>
     </div>
   </div>
 </header>
@@ -396,115 +398,127 @@ html { scroll-behavior: smooth; }
 <nav class="toc-bar">
   <div class="toc-inner">
     <div class="toc-links">
-      <a class="toc-link" href="#responsible-use"><span>—</span>Responsible Use</a>
-      <a class="toc-link" href="#strands"><span>—</span>Strands</a>
-      <a class="toc-link" href="#modules"><span>—</span>Modules</a>
-      <a class="toc-link" href="#labs"><span>—</span>Labs</a>
-      <a class="toc-link" href="#resources"><span>—</span>Resources</a>
+      <a class="toc-link" href="#overview"><span>1</span>Overview</a>
+      <a class="toc-link" href="#content"><span>2</span>Content</a>
+      <a class="toc-link" href="#activity"><span>3</span>Activity</a>
+      <a class="toc-link" href="#review"><span>4</span>Review</a>
+      <a class="toc-link" href="#further-reading"><span>5</span>Further Reading</a>
     </div>
   </div>
 </nav>
 
-<div class="layout no-sidebar">
+<div class="layout">
 <main class="content">
 
-<section class="block" id="responsible-use">
-  <div class="callout warn">
-    <div class="callout-mark">Before you start</div>
-    <p>Never paste secrets, credentials, customer data, or anything covered by an NDA into an AI tool. Read the <a href="responsible-use.html">Responsible Use policy</a> before Module 1 — it's short.</p>
+<div class="callout stub">
+  <div class="callout-mark">Stub</div>
+  <p>This module is scaffolded, not fully built out — objectives, key terms, and the core content are real and workshop-ready, but the activity and simulation are intentionally lighter than Modules 1–2. Flesh out before this becomes the standing version of the deck.</p>
+</div>
+
+<section class="block" id="overview">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Overview &amp; Objectives</h2></div>
+  <p>Modules 1 and 2 built the loop and the skill of prompting well. This module is about the last, hardest step: deciding how much to trust what comes back, and what "verify" actually means when you're not the one reading the code.</p>
+  <p><strong>By the end of this module, you'll be able to:</strong></p>
+  <ul id="objectives">
+    <li>Explain the difference between output that "looks right" and output that's been verified</li>
+    <li>Apply a lightweight verification checklist scaled to how much damage a wrong answer could do</li>
+    <li>Identify who to loop in when AI output touches something high-stakes</li>
+  </ul>
+  <p><strong>Prerequisites:</strong> Modules 01–02.</p>
+</section>
+
+<section class="block" id="key-terms-section">
+  <div class="sec-head"><span class="sec-num">·</span><h2>Key Terms</h2></div>
+  <div class="table-wrap">
+    <table id="key-terms">
+      <thead><tr><th>Term</th><th>Definition</th><th>First used in</th></tr></thead>
+      <tbody>
+        <tr><td>Verification</td><td>Actually confirming output does what it claims — running it, testing it, or having someone else check — as opposed to just reading it and nodding.</td><td>s1</td></tr>
+        <tr><td>Blast radius</td><td>How much damage a wrong answer could do if nobody catches it before it's used.</td><td>s2</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section class="block" id="strands">
-  <div class="sec-head"><span class="sec-num">Strands</span><h2>How the day is organized</h2></div>
-  <p>Four modules, one throughline: you'll leave able to run the loop — <strong>prompt, read, judge, iterate</strong> — on a real piece of work, not just a toy example.</p>
-  <div class="strand-row">
-    <span class="strand">Foundations — M1</span>
-    <span class="strand">Practice — M2</span>
-    <span class="strand">Judgment — M3</span>
-    <span class="strand">Capstone — M4</span>
+<section class="block" id="content">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Content Modules</h2></div>
+
+  <h3>s1 — "Looks right" isn't "is right"</h3>
+  <p>Everyone in the room can eyeball whether an answer <em>looks</em> plausible — that's not a technical skill. Verification is different: it means you did something that would have caught the answer if it were wrong. Reading confidently-written prose is not that something, for anyone, technical or not.</p>
+  <div class="callout">
+    <div class="callout-mark">Non-technical readers</div>
+    <p>You can verify without reading code: run it and check the actual result against what you expected, ask the AI to explain its reasoning and see if the explanation holds up, or hand it to someone who can read it. "I can't read the code" is not the same as "I can't verify the output."</p>
+  </div>
+
+  <h3>s2 — Scale the checklist to the blast radius</h3>
+  <p>You don't need the same verification effort for every task — you need it proportional to what happens if this specific answer is wrong. Use Module 1's "good fit / needs more rigor" table as a starting point, then apply this:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Blast radius</th><th>Minimum verification</th></tr></thead>
+      <tbody>
+        <tr><td>Low — just for you, easy to undo</td><td>Skim it, run it, move on.</td></tr>
+        <tr><td>Medium — others will see or use this</td><td>Run it against a real example; check the edge cases you can think of.</td></tr>
+        <tr><td>High — money, access, personal data, or it's hard to undo</td><td>A second person reviews it before it ships. No exceptions.</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section class="block" id="modules">
-  <div class="sec-head"><span class="sec-num">Modules</span><h2>Today's four modules</h2></div>
-  <div class="card-grid">
-    <a class="card module-card" href="module-01.html">
-      <div class="num">Module 01 · 45 min</div>
-      <h4>What Is Vibe Coding?</h4>
-      <p>The loop, the mindset shift, and where it belongs versus where it's dangerous.</p>
-      <div class="meta">Foundations</div>
-    </a>
-    <a class="card module-card" href="module-02.html">
-      <div class="num">Module 02 · 60 min</div>
-      <h4>The Vibe Coding Loop: Prompt, Review, Iterate</h4>
-      <p>Writing prompts that hold up, reading output like a reviewer, iterating without starting over.</p>
-      <div class="meta">Practice</div>
-    </a>
-    <a class="card module-card is-stub" href="module-03.html">
-      <div class="num">Module 03 · 45 min</div>
-      <h4>Judgment &amp; Guardrails</h4>
-      <p>When to trust the output, when to verify it, and what "verify" means for non-engineers too.</p>
-      <div class="meta">Judgment · content in progress</div>
-    </a>
-    <a class="card module-card is-stub" href="module-04.html">
-      <div class="num">Module 04 · 75 min</div>
-      <h4>Capstone: Build Something Real</h4>
-      <p>Build, present, and get critiqued on a small real thing using everything from M1–M3.</p>
-      <div class="meta">Capstone · content in progress</div>
-    </a>
+<section class="block" id="activity">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Activity — Name the Blast Radius</h2></div>
+  <p><strong>Type:</strong> Discussion, pairs · <strong>Time:</strong> 10 min</p>
+  <p>Each pair picks one real task from their own work — something they'd actually consider vibe coding. Answer out loud: what's the blast radius if the AI gets it wrong, and who would need to be looped in before it ships? Report one example back to the room.</p>
+</section>
+
+<section class="block" id="review">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Review &amp; Knowledge Check</h2></div>
+  <form data-quiz>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">1. What makes something "verified" rather than just "looks right"?</div>
+      <label class="q-opt"><input type="radio" name="q1" data-correct="false"> A confident, well-written explanation from the AI</label>
+      <label class="q-opt"><input type="radio" name="q1" data-correct="true"> Something that would have caught the answer if it were wrong — running it, testing it, or a second check</label>
+      <div class="quiz-feedback" data-correct-msg="Correct." data-incorrect-msg="Revisit s1."></div>
+    </div>
+    <div class="quiz-item" data-quiz-item>
+      <div class="q-text">2. A task has a high blast radius. What's the minimum bar?</div>
+      <label class="q-opt"><input type="radio" name="q2" data-correct="false"> Skim it and move on if it looks fine</label>
+      <label class="q-opt"><input type="radio" name="q2" data-correct="true"> A second person reviews it before it ships</label>
+      <div class="quiz-feedback" data-correct-msg="Correct." data-incorrect-msg="Revisit the table in s2."></div>
+    </div>
+    <p><button class="btn" type="button" data-action="grade-quiz">Grade My Quiz</button></p>
+    <p class="quiz-score"></p>
+  </form>
+</section>
+
+<section class="block" id="further-reading">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Further Reading</h2></div>
+  <ul>
+    <li><a href="responsible-use.html">Responsible Use Policy</a> — the guardrails that apply regardless of blast radius (what never goes into a prompt).</li>
+    <li><a href="core-frameworks.html">Core Frameworks</a> — this module's blast-radius model, plus where it connects to NIST AI RMF.</li>
+    <li><a href="lab-03-blast-radius-audit.html">Lab 03 — Blast-Radius Audit</a> — apply this framework to your own team's real backlog, if there's time.</li>
+  </ul>
+</section>
+
+<section class="block" id="deliverables">
+  <div class="sec-head"><span class="sec-num">·</span><h2>Deliverables</h2></div>
+  <div class="deliverables">
+    <label><input type="checkbox"> Objectives checklist completed (see sidebar)</label>
+    <label><input type="checkbox"> Name the Blast Radius example shared with the room</label>
+    <label><input type="checkbox"> Knowledge check quiz attempted</label>
   </div>
 </section>
 
-<section class="block" id="labs">
-  <div class="sec-head"><span class="sec-num">Labs</span><h2>Lab activities</h2></div>
-  <p>Deeper, longer follow-ups to three of the modules' inline activities — for a follow-up session or a room with extra time. See <a href="labs.html">all labs</a> for facilitation notes.</p>
-  <div class="card-grid">
-    <a class="card module-card" href="lab-01-rewrite-a-prompt.html">
-      <div class="num">Lab 01 · 20 min</div>
-      <h4>Rewrite a Prompt</h4>
-      <p>Rebuild your own real prompts with the four-ingredient framework, then run them.</p>
-    </a>
-    <a class="card module-card" href="lab-02-read-the-diff.html">
-      <div class="num">Lab 02 · 20 min</div>
-      <h4>Read the Diff</h4>
-      <p>Five realistic diffs, each with something wrong. Practice the three-question skim.</p>
-    </a>
-    <a class="card module-card" href="lab-03-blast-radius-audit.html">
-      <div class="num">Lab 03 · 25 min</div>
-      <h4>Blast-Radius Audit</h4>
-      <p>Score five real backlog items with Module 03's verification framework.</p>
-    </a>
-  </div>
-</section>
-
-<section class="block" id="resources">
-  <div class="sec-head"><span class="sec-num">Resources</span><h2>For facilitators &amp; participants</h2></div>
-  <div class="card-grid">
-    <a class="card" href="faculty-resources.html">
-      <h4>Faculty Resources</h4>
-      <p>Teaching guide, responsible-use policy, assessment bank, room setup, and pre-work email — all in one place, instructor only.</p>
-    </a>
-    <a class="card" href="core-frameworks.html">
-      <h4>Core Frameworks</h4>
-      <p>The workshop's own models, plus where they connect to NIST AI RMF and OWASP's LLM risk categories.</p>
-    </a>
-    <a class="card" href="prompt-builder.html">
-      <h4>Prompt Builder</h4>
-      <p>Assemble a coding prompt live, or generate the meta-prompt for drafting a new module.</p>
-    </a>
-    <a class="card" href="prompt-cheatsheet.html">
-      <h4>Prompt Cheat Sheet</h4>
-      <p>The reusable prompt patterns from Module 2, on one page for the walk back to your desk.</p>
-    </a>
-  </div>
-</section>
+<div class="prev-next">
+  <a class="prev" href="module-02.html"><span class="dir">Previous</span><span class="lbl">← Module 02 — The Vibe Coding Loop</span></a>
+  <a class="next" href="module-04.html"><span class="dir">Next</span><span class="lbl">Module 04 — Capstone →</span></a>
+</div>
 
 </main>
+<aside class="sidebar"></aside>
 </div>
 
 <footer class="site-footer">
-  Structure adapted from the <a href="https://sands-mvcc.github.io/ot/">sands-mvcc/ot</a> flat-file lesson site archetype — see the <a href="../workshop-archetypes/index.html">archetype blueprint</a> this course follows. Scaled down from a 5-day, 12-lesson format to a half-day, 4-module format for a mixed audience.
+  <a href="index.html">← Back to Vibe Workshop hub</a>
 </footer>
 
 <script>
@@ -684,6 +698,88 @@ html { scroll-behavior: smooth; }
     wirePrintButton();
     buildSidebar();
   });
+})();
+
+</script>
+<script>
+/* Vibe Workshop — shared grading + progress-tracking logic.
+   Quiz markup contract (per .quiz-item):
+     <div class="quiz-item" data-quiz-item>
+       <div class="q-text">...</div>
+       <label class="q-opt"><input type="radio" name="qN" data-correct="true|false"> text</label>
+       ...
+       <div class="quiz-feedback" data-correct-msg="..." data-incorrect-msg="..."></div>
+     </div>
+   Matching markup contract (per .match-row):
+     <div class="match-row" data-answer="correct-option-value">
+       <span class="prompt-text">...</span>
+       <select>...</select>
+       <div class="match-feedback ok">...</div>
+       <div class="match-feedback bad">...</div>
+     </div>
+*/
+(function () {
+  "use strict";
+
+  function gradeQuiz(form) {
+    var items = form.querySelectorAll(".quiz-item[data-quiz-item]");
+    var correctCount = 0;
+    items.forEach(function (item) {
+      var picked = item.querySelector("input[type='radio']:checked");
+      var fb = item.querySelector(".quiz-feedback");
+      item.classList.remove("correct", "incorrect");
+      item.classList.add("answered");
+      if (!picked) {
+        item.classList.remove("answered");
+        return;
+      }
+      var isCorrect = picked.getAttribute("data-correct") === "true";
+      item.classList.add(isCorrect ? "correct" : "incorrect");
+      if (isCorrect) correctCount++;
+      if (fb) {
+        fb.textContent = isCorrect
+          ? (fb.getAttribute("data-correct-msg") || "Correct.")
+          : (fb.getAttribute("data-incorrect-msg") || "Not quite — review the section above.");
+      }
+    });
+    var scoreEl = form.querySelector(".quiz-score");
+    if (scoreEl) {
+      scoreEl.textContent = "Score: " + correctCount + " / " + items.length;
+    }
+    var storeKey = "vibe-workshop-quiz:" + (document.body.getAttribute("data-module-id") || location.pathname);
+    localStorage.setItem(storeKey, JSON.stringify({ score: correctCount, total: items.length, at: Date.now() }));
+    return { correct: correctCount, total: items.length };
+  }
+
+  function checkMapping(container) {
+    var rows = container.querySelectorAll(".match-row");
+    var correctCount = 0;
+    rows.forEach(function (row) {
+      var select = row.querySelector("select");
+      var answer = row.getAttribute("data-answer");
+      row.classList.remove("correct", "incorrect");
+      if (!select || !select.value) return;
+      var ok = select.value === answer;
+      row.classList.add(ok ? "correct" : "incorrect");
+      if (ok) correctCount++;
+    });
+    var scoreEl = container.querySelector(".match-score");
+    if (scoreEl) scoreEl.textContent = correctCount + " / " + rows.length + " matched correctly";
+    return { correct: correctCount, total: rows.length };
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("form[data-quiz]").forEach(function (form) {
+      var btn = form.querySelector("[data-action='grade-quiz']");
+      if (btn) btn.addEventListener("click", function (e) { e.preventDefault(); gradeQuiz(form); });
+    });
+    document.querySelectorAll("[data-activity='match']").forEach(function (container) {
+      var btn = container.querySelector("[data-action='check-mapping']");
+      if (btn) btn.addEventListener("click", function (e) { e.preventDefault(); checkMapping(container); });
+    });
+  });
+
+  window.VibeQuiz = { gradeQuiz: gradeQuiz, checkMapping: checkMapping };
 })();
 
 </script>

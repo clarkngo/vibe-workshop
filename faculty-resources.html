@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vibe Coding: Building Software by Collaborating with AI</title>
-<meta name="description" content="A half-day workshop teaching a mixed technical/non-technical audience how to build software by collaborating with AI coding tools — prompting, reviewing, and knowing when to trust the output.">
+<title>Faculty Resources · Vibe Workshop</title>
+<meta name="description" content="Everything a facilitator needs in one place: teaching guide, responsible-use policy, assessment bank, prompt-builder tool, room setup checklist, and pre-work email template.">
 <style>
 /* Vibe Workshop — shared theme
    One stylesheet, one localStorage key (see nav.js), linked by every page.
@@ -380,27 +380,22 @@ html { scroll-behavior: smooth; }
       <a class="brand" href="index.html">Vibe Workshop</a>
       <div class="masthead-actions">
         <button class="icon-btn" data-action="toggle-theme">🌙 Dark</button>
+        <button class="icon-btn" data-action="print">🖶 Print</button>
       </div>
     </div>
-    <div class="eyebrow">Half-Day Workshop</div>
-    <h1 class="title">Vibe Coding: Building Software by Collaborating with AI</h1>
-    <p class="dek">A hands-on introduction to building software by working with an AI coding partner — how to prompt it, how to read what it hands back, and how to know when the output deserves your trust. Built for a room that mixes engineers with people who've never opened a terminal.</p>
-    <div class="source-strip">
-      <span><b>Format:</b> half-day, 4 modules</span>
-      <span><b>Audience:</b> mixed technical / non-technical</span>
-      <span><b>Archetype:</b> flat-file lesson site</span>
-    </div>
+    <div class="breadcrumb"><a href="index.html">Vibe Workshop</a> / Faculty Resources</div>
+    <div class="eyebrow">Instructor Only</div>
+    <h1 class="title">Faculty Resources</h1>
+    <p class="dek">Everything a facilitator needs to run this workshop, in one place — the standing pages plus two things worth doing before anyone walks in the room.</p>
   </div>
 </header>
 
 <nav class="toc-bar">
   <div class="toc-inner">
     <div class="toc-links">
-      <a class="toc-link" href="#responsible-use"><span>—</span>Responsible Use</a>
-      <a class="toc-link" href="#strands"><span>—</span>Strands</a>
-      <a class="toc-link" href="#modules"><span>—</span>Modules</a>
-      <a class="toc-link" href="#labs"><span>—</span>Labs</a>
-      <a class="toc-link" href="#resources"><span>—</span>Resources</a>
+      <a class="toc-link" href="#core-docs"><span>1</span>Core Docs</a>
+      <a class="toc-link" href="#setup"><span>2</span>Room &amp; Tech Setup</a>
+      <a class="toc-link" href="#prework"><span>3</span>Pre-Work Email</a>
     </div>
   </div>
 </nav>
@@ -408,103 +403,76 @@ html { scroll-behavior: smooth; }
 <div class="layout no-sidebar">
 <main class="content">
 
-<section class="block" id="responsible-use">
-  <div class="callout warn">
-    <div class="callout-mark">Before you start</div>
-    <p>Never paste secrets, credentials, customer data, or anything covered by an NDA into an AI tool. Read the <a href="responsible-use.html">Responsible Use policy</a> before Module 1 — it's short.</p>
-  </div>
-</section>
-
-<section class="block" id="strands">
-  <div class="sec-head"><span class="sec-num">Strands</span><h2>How the day is organized</h2></div>
-  <p>Four modules, one throughline: you'll leave able to run the loop — <strong>prompt, read, judge, iterate</strong> — on a real piece of work, not just a toy example.</p>
-  <div class="strand-row">
-    <span class="strand">Foundations — M1</span>
-    <span class="strand">Practice — M2</span>
-    <span class="strand">Judgment — M3</span>
-    <span class="strand">Capstone — M4</span>
-  </div>
-</section>
-
-<section class="block" id="modules">
-  <div class="sec-head"><span class="sec-num">Modules</span><h2>Today's four modules</h2></div>
+<section class="block" id="core-docs">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Core Docs</h2></div>
   <div class="card-grid">
-    <a class="card module-card" href="module-01.html">
-      <div class="num">Module 01 · 45 min</div>
-      <h4>What Is Vibe Coding?</h4>
-      <p>The loop, the mindset shift, and where it belongs versus where it's dangerous.</p>
-      <div class="meta">Foundations</div>
+    <a class="card" href="teaching-guide.html">
+      <h4>Teaching Guide</h4>
+      <p>Schedule, pacing, facilitation notes, misconceptions, and the dated link audit.</p>
     </a>
-    <a class="card module-card" href="module-02.html">
-      <div class="num">Module 02 · 60 min</div>
-      <h4>The Vibe Coding Loop: Prompt, Review, Iterate</h4>
-      <p>Writing prompts that hold up, reading output like a reviewer, iterating without starting over.</p>
-      <div class="meta">Practice</div>
+    <a class="card" href="responsible-use.html">
+      <h4>Responsible Use Policy</h4>
+      <p>What not to paste into an AI tool, and why. Read by everyone before Module 1.</p>
     </a>
-    <a class="card module-card is-stub" href="module-03.html">
-      <div class="num">Module 03 · 45 min</div>
-      <h4>Judgment &amp; Guardrails</h4>
-      <p>When to trust the output, when to verify it, and what "verify" means for non-engineers too.</p>
-      <div class="meta">Judgment · content in progress</div>
+    <a class="card" href="assessment-bank.html">
+      <h4>Assessment Bank</h4>
+      <p>Aggregated quiz answer keys, activity answer keys, and the capstone rubric.</p>
     </a>
-    <a class="card module-card is-stub" href="module-04.html">
-      <div class="num">Module 04 · 75 min</div>
-      <h4>Capstone: Build Something Real</h4>
-      <p>Build, present, and get critiqued on a small real thing using everything from M1–M3.</p>
-      <div class="meta">Capstone · content in progress</div>
-    </a>
-  </div>
-</section>
-
-<section class="block" id="labs">
-  <div class="sec-head"><span class="sec-num">Labs</span><h2>Lab activities</h2></div>
-  <p>Deeper, longer follow-ups to three of the modules' inline activities — for a follow-up session or a room with extra time. See <a href="labs.html">all labs</a> for facilitation notes.</p>
-  <div class="card-grid">
-    <a class="card module-card" href="lab-01-rewrite-a-prompt.html">
-      <div class="num">Lab 01 · 20 min</div>
-      <h4>Rewrite a Prompt</h4>
-      <p>Rebuild your own real prompts with the four-ingredient framework, then run them.</p>
-    </a>
-    <a class="card module-card" href="lab-02-read-the-diff.html">
-      <div class="num">Lab 02 · 20 min</div>
-      <h4>Read the Diff</h4>
-      <p>Five realistic diffs, each with something wrong. Practice the three-question skim.</p>
-    </a>
-    <a class="card module-card" href="lab-03-blast-radius-audit.html">
-      <div class="num">Lab 03 · 25 min</div>
-      <h4>Blast-Radius Audit</h4>
-      <p>Score five real backlog items with Module 03's verification framework.</p>
-    </a>
-  </div>
-</section>
-
-<section class="block" id="resources">
-  <div class="sec-head"><span class="sec-num">Resources</span><h2>For facilitators &amp; participants</h2></div>
-  <div class="card-grid">
-    <a class="card" href="faculty-resources.html">
-      <h4>Faculty Resources</h4>
-      <p>Teaching guide, responsible-use policy, assessment bank, room setup, and pre-work email — all in one place, instructor only.</p>
+    <a class="card" href="prompt-builder.html">
+      <h4>Prompt Builder Tool</h4>
+      <p>Assemble a well-formed prompt live, or generate the meta-prompt for drafting a new module.</p>
     </a>
     <a class="card" href="core-frameworks.html">
       <h4>Core Frameworks</h4>
-      <p>The workshop's own models, plus where they connect to NIST AI RMF and OWASP's LLM risk categories.</p>
+      <p>The workshop's own models plus where they connect to NIST AI RMF and OWASP's LLM risk list.</p>
     </a>
-    <a class="card" href="prompt-builder.html">
-      <h4>Prompt Builder</h4>
-      <p>Assemble a coding prompt live, or generate the meta-prompt for drafting a new module.</p>
-    </a>
-    <a class="card" href="prompt-cheatsheet.html">
-      <h4>Prompt Cheat Sheet</h4>
-      <p>The reusable prompt patterns from Module 2, on one page for the walk back to your desk.</p>
+    <a class="card" href="labs.html">
+      <h4>Lab Activities</h4>
+      <p>Three standalone hands-on labs that go deeper than each module's inline activity.</p>
     </a>
   </div>
+</section>
+
+<section class="block" id="setup">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Room &amp; Tech Setup Checklist</h2></div>
+  <p>Run through this the day before. Nothing on it is recoverable mid-session without losing time from Module 1.</p>
+  <div class="deliverables">
+    <label><input type="checkbox"> Wifi tested from the room, guest credentials written on the board</label>
+    <label><input type="checkbox"> Every participant has (or can self-serve) an account on whichever AI coding tool you're demoing</label>
+    <label><input type="checkbox"> Projector/screen tested with this site open, both light and dark mode</label>
+    <label><input type="checkbox"> Laptops charged or charging cables available — Module 04 needs a full battery</label>
+    <label><input type="checkbox"> <a href="prompt-cheatsheet.html">Prompt Cheat Sheet</a> printed or the link shared, for anyone who prefers paper</label>
+    <label><input type="checkbox"> A facilitator laptop signed into the AI tool for the Module 01 simulation walkthrough</label>
+  </div>
+</section>
+
+<section class="block" id="prework">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Pre-Work Email Template</h2></div>
+  <p>Send 2–3 days before. Keeps Module 1 from losing 15 minutes to account creation.</p>
+  <div class="pre-wrap"><pre>Subject: Before Thursday's Vibe Coding workshop — 5 minutes of setup
+
+Hi all,
+
+Quick setup before we meet:
+
+1. Bring a laptop that can run a browser (no coding experience or
+   local install needed).
+2. Create an account on [your org's AI coding tool] if you don't
+   already have one — link: [tool signup link]
+3. Skim the Responsible Use Policy (5 min): [link to responsible-use.html]
+   The short version: never paste secrets, credentials, or customer
+   data into an AI tool. We'll cover why on the day.
+
+That's it. See you Thursday at [time] in [room].
+
+[Facilitator name]</pre></div>
 </section>
 
 </main>
 </div>
 
 <footer class="site-footer">
-  Structure adapted from the <a href="https://sands-mvcc.github.io/ot/">sands-mvcc/ot</a> flat-file lesson site archetype — see the <a href="../workshop-archetypes/index.html">archetype blueprint</a> this course follows. Scaled down from a 5-day, 12-lesson format to a half-day, 4-module format for a mixed audience.
+  <a href="index.html">← Back to Vibe Workshop hub</a>
 </footer>
 
 <script>

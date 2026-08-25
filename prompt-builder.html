@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vibe Coding: Building Software by Collaborating with AI</title>
-<meta name="description" content="A half-day workshop teaching a mixed technical/non-technical audience how to build software by collaborating with AI coding tools — prompting, reviewing, and knowing when to trust the output.">
+<title>Prompt Builder · Vibe Workshop</title>
+<meta name="description" content="Two tools: assemble a well-formed coding prompt live using Module 02's framework, or generate the meta-prompt for drafting a new module page in this site's own style.">
 <style>
 /* Vibe Workshop — shared theme
    One stylesheet, one localStorage key (see nav.js), linked by every page.
@@ -380,27 +380,21 @@ html { scroll-behavior: smooth; }
       <a class="brand" href="index.html">Vibe Workshop</a>
       <div class="masthead-actions">
         <button class="icon-btn" data-action="toggle-theme">🌙 Dark</button>
+        <button class="icon-btn" data-action="print">🖶 Print</button>
       </div>
     </div>
-    <div class="eyebrow">Half-Day Workshop</div>
-    <h1 class="title">Vibe Coding: Building Software by Collaborating with AI</h1>
-    <p class="dek">A hands-on introduction to building software by working with an AI coding partner — how to prompt it, how to read what it hands back, and how to know when the output deserves your trust. Built for a room that mixes engineers with people who've never opened a terminal.</p>
-    <div class="source-strip">
-      <span><b>Format:</b> half-day, 4 modules</span>
-      <span><b>Audience:</b> mixed technical / non-technical</span>
-      <span><b>Archetype:</b> flat-file lesson site</span>
-    </div>
+    <div class="breadcrumb"><a href="index.html">Vibe Workshop</a> / Prompt Builder</div>
+    <div class="eyebrow">Tool</div>
+    <h1 class="title">Prompt Builder</h1>
+    <p class="dek">Two small tools, both entirely in your browser — nothing you type here is sent anywhere. Assemble a coding prompt for your own work, or generate the meta-prompt for drafting a new module in this site's own style.</p>
   </div>
 </header>
 
 <nav class="toc-bar">
   <div class="toc-inner">
     <div class="toc-links">
-      <a class="toc-link" href="#responsible-use"><span>—</span>Responsible Use</a>
-      <a class="toc-link" href="#strands"><span>—</span>Strands</a>
-      <a class="toc-link" href="#modules"><span>—</span>Modules</a>
-      <a class="toc-link" href="#labs"><span>—</span>Labs</a>
-      <a class="toc-link" href="#resources"><span>—</span>Resources</a>
+      <a class="toc-link" href="#build-prompt"><span>1</span>Build a Coding Prompt</a>
+      <a class="toc-link" href="#draft-module"><span>2</span>Draft a New Module</a>
     </div>
   </div>
 </nav>
@@ -408,95 +402,69 @@ html { scroll-behavior: smooth; }
 <div class="layout no-sidebar">
 <main class="content">
 
-<section class="block" id="responsible-use">
-  <div class="callout warn">
-    <div class="callout-mark">Before you start</div>
-    <p>Never paste secrets, credentials, customer data, or anything covered by an NDA into an AI tool. Read the <a href="responsible-use.html">Responsible Use policy</a> before Module 1 — it's short.</p>
+<section class="block" id="build-prompt">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Build a Coding Prompt</h2></div>
+  <p>The four ingredients from <a href="module-02.html">Module 02</a>. Fill in whichever apply — you rarely need all four — and the prompt assembles itself below.</p>
+  <div class="activity-box">
+    <div style="display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+      <div>
+        <label for="pb-context" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Context — what already exists</label>
+        <textarea id="pb-context" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="Paste existing code, or describe the current state."></textarea>
+      </div>
+      <div>
+        <label for="pb-constraints" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Constraints — what's fixed</label>
+        <textarea id="pb-constraints" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="Language, library, performance, style rules."></textarea>
+      </div>
+      <div>
+        <label for="pb-example" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Example — a concrete input/output</label>
+        <textarea id="pb-example" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="Given X, I want Y."></textarea>
+      </div>
+      <div>
+        <label for="pb-success" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Success criteria — how you'll know it's done</label>
+        <textarea id="pb-success" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="The test passes. The page loads. It handles an empty list."></textarea>
+      </div>
+    </div>
+    <p style="margin-top:16px;"><strong>What am I trying to do?</strong></p>
+    <textarea id="pb-task" rows="2" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="One line: the actual ask."></textarea>
+    <div class="sim-readout" id="pb-output" style="margin-top:16px;">Fill in at least the task line above.</div>
+    <p style="margin-top:12px;">
+      <button class="btn" id="pb-copy" type="button">Copy Prompt</button>
+      <span id="pb-copy-status" style="margin-left:10px; font-size:13px; color:var(--muted);"></span>
+    </p>
   </div>
 </section>
 
-<section class="block" id="strands">
-  <div class="sec-head"><span class="sec-num">Strands</span><h2>How the day is organized</h2></div>
-  <p>Four modules, one throughline: you'll leave able to run the loop — <strong>prompt, read, judge, iterate</strong> — on a real piece of work, not just a toy example.</p>
-  <div class="strand-row">
-    <span class="strand">Foundations — M1</span>
-    <span class="strand">Practice — M2</span>
-    <span class="strand">Judgment — M3</span>
-    <span class="strand">Capstone — M4</span>
-  </div>
-</section>
-
-<section class="block" id="modules">
-  <div class="sec-head"><span class="sec-num">Modules</span><h2>Today's four modules</h2></div>
-  <div class="card-grid">
-    <a class="card module-card" href="module-01.html">
-      <div class="num">Module 01 · 45 min</div>
-      <h4>What Is Vibe Coding?</h4>
-      <p>The loop, the mindset shift, and where it belongs versus where it's dangerous.</p>
-      <div class="meta">Foundations</div>
-    </a>
-    <a class="card module-card" href="module-02.html">
-      <div class="num">Module 02 · 60 min</div>
-      <h4>The Vibe Coding Loop: Prompt, Review, Iterate</h4>
-      <p>Writing prompts that hold up, reading output like a reviewer, iterating without starting over.</p>
-      <div class="meta">Practice</div>
-    </a>
-    <a class="card module-card is-stub" href="module-03.html">
-      <div class="num">Module 03 · 45 min</div>
-      <h4>Judgment &amp; Guardrails</h4>
-      <p>When to trust the output, when to verify it, and what "verify" means for non-engineers too.</p>
-      <div class="meta">Judgment · content in progress</div>
-    </a>
-    <a class="card module-card is-stub" href="module-04.html">
-      <div class="num">Module 04 · 75 min</div>
-      <h4>Capstone: Build Something Real</h4>
-      <p>Build, present, and get critiqued on a small real thing using everything from M1–M3.</p>
-      <div class="meta">Capstone · content in progress</div>
-    </a>
-  </div>
-</section>
-
-<section class="block" id="labs">
-  <div class="sec-head"><span class="sec-num">Labs</span><h2>Lab activities</h2></div>
-  <p>Deeper, longer follow-ups to three of the modules' inline activities — for a follow-up session or a room with extra time. See <a href="labs.html">all labs</a> for facilitation notes.</p>
-  <div class="card-grid">
-    <a class="card module-card" href="lab-01-rewrite-a-prompt.html">
-      <div class="num">Lab 01 · 20 min</div>
-      <h4>Rewrite a Prompt</h4>
-      <p>Rebuild your own real prompts with the four-ingredient framework, then run them.</p>
-    </a>
-    <a class="card module-card" href="lab-02-read-the-diff.html">
-      <div class="num">Lab 02 · 20 min</div>
-      <h4>Read the Diff</h4>
-      <p>Five realistic diffs, each with something wrong. Practice the three-question skim.</p>
-    </a>
-    <a class="card module-card" href="lab-03-blast-radius-audit.html">
-      <div class="num">Lab 03 · 25 min</div>
-      <h4>Blast-Radius Audit</h4>
-      <p>Score five real backlog items with Module 03's verification framework.</p>
-    </a>
-  </div>
-</section>
-
-<section class="block" id="resources">
-  <div class="sec-head"><span class="sec-num">Resources</span><h2>For facilitators &amp; participants</h2></div>
-  <div class="card-grid">
-    <a class="card" href="faculty-resources.html">
-      <h4>Faculty Resources</h4>
-      <p>Teaching guide, responsible-use policy, assessment bank, room setup, and pre-work email — all in one place, instructor only.</p>
-    </a>
-    <a class="card" href="core-frameworks.html">
-      <h4>Core Frameworks</h4>
-      <p>The workshop's own models, plus where they connect to NIST AI RMF and OWASP's LLM risk categories.</p>
-    </a>
-    <a class="card" href="prompt-builder.html">
-      <h4>Prompt Builder</h4>
-      <p>Assemble a coding prompt live, or generate the meta-prompt for drafting a new module.</p>
-    </a>
-    <a class="card" href="prompt-cheatsheet.html">
-      <h4>Prompt Cheat Sheet</h4>
-      <p>The reusable prompt patterns from Module 2, on one page for the walk back to your desk.</p>
-    </a>
+<section class="block" id="draft-module">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Draft a New Module</h2></div>
+  <p><strong>Facilitator tool.</strong> This site's own version of the archetype blueprint's content-generation tools — fill in the basics for a new module, and get a meta-prompt built to hand to an AI coding tool that will draft the page in this site's own house style.</p>
+  <div class="activity-box">
+    <div style="display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+      <div>
+        <label for="dm-number" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Module number</label>
+        <input type="text" id="dm-number" style="width:100%;" placeholder="05">
+      </div>
+      <div>
+        <label for="dm-strand" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Strand</label>
+        <input type="text" id="dm-strand" style="width:100%;" placeholder="e.g. Foundations, Practice, Judgment, Capstone, or a new one">
+      </div>
+      <div>
+        <label for="dm-duration" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Duration</label>
+        <input type="text" id="dm-duration" style="width:100%;" placeholder="45 min">
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      <label for="dm-title" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Title</label>
+      <input type="text" id="dm-title" style="width:100%;" placeholder="What this module is called">
+    </div>
+    <div style="margin-top:14px;">
+      <label for="dm-objectives" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Objectives (one per line)</label>
+      <textarea id="dm-objectives" rows="4" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);" placeholder="Define X&#10;Apply Y&#10;Recognize Z"></textarea>
+    </div>
+    <div class="sim-readout" id="dm-output" style="margin-top:16px;">Fill in the fields above.</div>
+    <p style="margin-top:12px;">
+      <button class="btn" id="dm-copy" type="button">Copy Meta-Prompt</button>
+      <span id="dm-copy-status" style="margin-left:10px; font-size:13px; color:var(--muted);"></span>
+    </p>
   </div>
 </section>
 
@@ -504,7 +472,7 @@ html { scroll-behavior: smooth; }
 </div>
 
 <footer class="site-footer">
-  Structure adapted from the <a href="https://sands-mvcc.github.io/ot/">sands-mvcc/ot</a> flat-file lesson site archetype — see the <a href="../workshop-archetypes/index.html">archetype blueprint</a> this course follows. Scaled down from a 5-day, 12-lesson format to a half-day, 4-module format for a mixed audience.
+  <a href="index.html">← Back to Vibe Workshop hub</a>
 </footer>
 
 <script>
@@ -686,6 +654,94 @@ html { scroll-behavior: smooth; }
   });
 })();
 
+</script>
+<script>
+  (function () {
+    "use strict";
+
+    function copyText(text, statusEl) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          statusEl.textContent = "Copied.";
+          setTimeout(function () { statusEl.textContent = ""; }, 2000);
+        }).catch(function () {
+          statusEl.textContent = "Couldn't copy automatically — select the text above and copy manually.";
+        });
+      } else {
+        statusEl.textContent = "Select the text above and copy manually.";
+      }
+    }
+
+    // --- Section 1: Build a Coding Prompt ---
+    var pbIds = ["pb-task", "pb-context", "pb-constraints", "pb-example", "pb-success"];
+    var pbOutput = document.getElementById("pb-output");
+    function renderPrompt() {
+      var task = document.getElementById("pb-task").value.trim();
+      var context = document.getElementById("pb-context").value.trim();
+      var constraints = document.getElementById("pb-constraints").value.trim();
+      var example = document.getElementById("pb-example").value.trim();
+      var success = document.getElementById("pb-success").value.trim();
+      if (!task && !context && !constraints && !example && !success) {
+        pbOutput.textContent = "Fill in at least the task line above.";
+        return;
+      }
+      var parts = [];
+      if (task) parts.push(task);
+      if (context) parts.push("Context: " + context);
+      if (constraints) parts.push("Constraints: " + constraints);
+      if (example) parts.push("Example: " + example);
+      if (success) parts.push("Success criteria: " + success);
+      pbOutput.textContent = parts.join("\n\n");
+    }
+    pbIds.forEach(function (id) {
+      document.getElementById(id).addEventListener("input", renderPrompt);
+    });
+    document.getElementById("pb-copy").addEventListener("click", function () {
+      copyText(pbOutput.textContent, document.getElementById("pb-copy-status"));
+    });
+
+    // --- Section 2: Draft a New Module ---
+    var dmIds = ["dm-number", "dm-strand", "dm-duration", "dm-title", "dm-objectives"];
+    var dmOutput = document.getElementById("dm-output");
+    function renderModulePrompt() {
+      var number = document.getElementById("dm-number").value.trim() || "NN";
+      var strand = document.getElementById("dm-strand").value.trim() || "[strand]";
+      var duration = document.getElementById("dm-duration").value.trim() || "[duration]";
+      var title = document.getElementById("dm-title").value.trim() || "[title]";
+      var objectivesRaw = document.getElementById("dm-objectives").value.trim();
+      if (!document.getElementById("dm-title").value.trim() && !objectivesRaw) {
+        dmOutput.textContent = "Fill in the fields above.";
+        return;
+      }
+      var objectives = objectivesRaw
+        ? objectivesRaw.split("\n").map(function (l) { return l.trim(); }).filter(Boolean).map(function (l) { return "- " + l; }).join("\n")
+        : "- [objective 1]\n- [objective 2]\n- [objective 3]";
+      var prompt = [
+        "Draft module-" + number + ".html for the Vibe Workshop site.",
+        "",
+        "Title: " + title,
+        "Strand: " + strand,
+        "Duration: " + duration,
+        "",
+        "Objectives:",
+        objectives,
+        "",
+        "Follow the site's own template exactly:",
+        "- Copy the full <style> block and the nav.js <script> block verbatim from an existing module page (e.g. module-01.html) — do not modify them.",
+        "- Use the six-part module anatomy: Overview & Objectives, Key Terms (table#key-terms), Content Modules (s1/s2/s3 under h3), Activity (a .match-row matching exercise or similar), Simulation (a small interactive demo, clearly labeled '⚠ Simulation only'), Review & Knowledge Check (a form[data-quiz] with 3-4 .quiz-item blocks, plus the quiz-engine.js script block), Further Reading, Deliverables.",
+        "- Keep the file fully self-contained, flat at the site root, matching every other page.",
+        "- Add prev/next links to the module before and after this one in the sequence.",
+        "- Keep the tone consistent with existing modules: direct, concrete, no filler."
+      ].join("\n");
+      dmOutput.textContent = prompt;
+    }
+    dmIds.forEach(function (id) {
+      document.getElementById(id).addEventListener("input", renderModulePrompt);
+    });
+    document.getElementById("dm-copy").addEventListener("click", function () {
+      copyText(dmOutput.textContent, document.getElementById("dm-copy-status"));
+    });
+  })();
 </script>
 </body>
 </html>
