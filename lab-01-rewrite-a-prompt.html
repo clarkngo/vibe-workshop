@@ -409,14 +409,23 @@ html { scroll-behavior: smooth; }
 
 <section class="block">
   <div class="sec-head"><span class="sec-num">2</span><h2>Score each prompt</h2></div>
-  <p>For each of your three prompts, check off which of the four ingredients from Module 02 it already has. Be honest — "the AI could probably guess it" doesn't count as present.</p>
+  <p>Type in each of your three prompts, then check off which of the four ingredients from Module 02 it already has. Be honest — "the AI could probably guess it" doesn't count as present. Everything you type here stays in your browser only.</p>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Prompt</th><th>Context</th><th>Constraints</th><th>Example</th><th>Success criteria</th></tr></thead>
+      <thead><tr><th style="min-width:220px;">Prompt</th><th>Context</th><th>Constraints</th><th>Example</th><th>Success criteria</th></tr></thead>
       <tbody>
-        <tr><td>1.</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
-        <tr><td>2.</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
-        <tr><td>3.</td><td>☐</td><td>☐</td><td>☐</td><td>☐</td></tr>
+        <tr>
+          <td><input type="text" id="l1-prompt-1" placeholder="Your prompt 1" style="width:100%;"></td>
+          <td><input type="checkbox" id="l1-ctx-1"></td><td><input type="checkbox" id="l1-con-1"></td><td><input type="checkbox" id="l1-ex-1"></td><td><input type="checkbox" id="l1-suc-1"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="l1-prompt-2" placeholder="Your prompt 2" style="width:100%;"></td>
+          <td><input type="checkbox" id="l1-ctx-2"></td><td><input type="checkbox" id="l1-con-2"></td><td><input type="checkbox" id="l1-ex-2"></td><td><input type="checkbox" id="l1-suc-2"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="l1-prompt-3" placeholder="Your prompt 3" style="width:100%;"></td>
+          <td><input type="checkbox" id="l1-ctx-3"></td><td><input type="checkbox" id="l1-con-3"></td><td><input type="checkbox" id="l1-ex-3"></td><td><input type="checkbox" id="l1-suc-3"></td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -425,17 +434,20 @@ html { scroll-behavior: smooth; }
 <section class="block">
   <div class="sec-head"><span class="sec-num">3</span><h2>Rewrite</h2></div>
   <p>For each prompt, add whatever's missing. You don't need all four every time — add enough that a stranger could produce roughly the output you actually wanted.</p>
-  <div class="pre-wrap"><pre>Prompt 1 — rewrite:
-
-
-
-Prompt 2 — rewrite:
-
-
-
-Prompt 3 — rewrite:
-
-</pre></div>
+  <div style="display:grid; gap:14px;">
+    <div>
+      <label for="l1-rewrite-1" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Prompt 1 — rewrite</label>
+      <textarea id="l1-rewrite-1" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);"></textarea>
+    </div>
+    <div>
+      <label for="l1-rewrite-2" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Prompt 2 — rewrite</label>
+      <textarea id="l1-rewrite-2" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);"></textarea>
+    </div>
+    <div>
+      <label for="l1-rewrite-3" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin-bottom:6px;">Prompt 3 — rewrite</label>
+      <textarea id="l1-rewrite-3" rows="3" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink);"></textarea>
+    </div>
+  </div>
 </section>
 
 <section class="block">
@@ -643,6 +655,24 @@ Prompt 3 — rewrite:
   });
 })();
 
+</script>
+<script>
+  (function () {
+    "use strict";
+    var PREFIX = "vibe-workshop-lab:" + location.pathname + ":";
+    document.querySelectorAll("main.content input[id], main.content textarea[id]").forEach(function (el) {
+      var key = PREFIX + el.id;
+      var saved = localStorage.getItem(key);
+      if (saved !== null) {
+        if (el.type === "checkbox" || el.type === "radio") el.checked = saved === "true";
+        else el.value = saved;
+      }
+      var evt = (el.type === "checkbox" || el.type === "radio") ? "change" : "input";
+      el.addEventListener(evt, function () {
+        localStorage.setItem(key, el.type === "checkbox" || el.type === "radio" ? el.checked : el.value);
+      });
+    });
+  })();
 </script>
 </body>
 </html>

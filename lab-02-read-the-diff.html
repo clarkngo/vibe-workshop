@@ -406,6 +406,8 @@ html { scroll-behavior: smooth; }
 +   }
     return true;
   }</pre></div>
+  <label for="l2-guess-1" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin:10px 0 6px;">Your guess — what's wrong here?</label>
+  <textarea id="l2-guess-1" rows="2" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink); margin-bottom:10px;"></textarea>
   <details><summary>Reveal what's wrong</summary>
     <p>It checks for <code>null</code> but not an empty string, whitespace, or a malformed address — it will accept <code>""</code> as valid. The change matches the words of the request ("add validation") without matching the intent (reject bad emails).</p>
   </details>
@@ -420,6 +422,8 @@ html { scroll-behavior: smooth; }
 +   sendAnalyticsEvent('invoice_viewed', { id: invoice.id });
     return formatDate(invoice.date);
   }</pre></div>
+  <label for="l2-guess-2" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin:10px 0 6px;">Your guess — what's wrong here?</label>
+  <textarea id="l2-guess-2" rows="2" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink); margin-bottom:10px;"></textarea>
   <details><summary>Reveal what's wrong</summary>
     <p>An analytics call was added that has nothing to do with date formatting — scope creep, and a new side effect (a network call, on every render) that nobody asked for and nobody's reviewing for correctness.</p>
   </details>
@@ -436,6 +440,8 @@ html { scroll-behavior: smooth; }
 +     return {};
 +   }
   }</pre></div>
+  <label for="l2-guess-3" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin:10px 0 6px;">Your guess — what's wrong here?</label>
+  <textarea id="l2-guess-3" rows="2" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink); margin-bottom:10px;"></textarea>
   <details><summary>Reveal what's wrong</summary>
     <p>It "handles" the failure by silently returning an empty object — every caller downstream now gets a profile with no fields and no signal anything went wrong. This is the hallmark of an error being swallowed instead of handled.</p>
   </details>
@@ -447,6 +453,8 @@ html { scroll-behavior: smooth; }
 +   const apiKey = "wk_live_9f2a7c1e4b8d3a20";
     return fetch(`https://api.example.com/forecast?city=${city}&key=${apiKey}`);
   }</pre></div>
+  <label for="l2-guess-4" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin:10px 0 6px;">Your guess — what's wrong here?</label>
+  <textarea id="l2-guess-4" rows="2" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink); margin-bottom:10px;"></textarea>
   <details><summary>Reveal what's wrong</summary>
     <p>A live API key hardcoded directly into source. Anyone with repo access — or anyone who finds it in a public commit — has it now. This is exactly the class of thing the <a href="responsible-use.html">Responsible Use Policy</a> warns about, just going the other direction: out of the code instead of into a prompt.</p>
   </details>
@@ -462,6 +470,8 @@ html { scroll-behavior: smooth; }
 
 - exports.calculateTotal = calculateTotal;
 + exports.calculateOrderTotal = calculateOrderTotal;</pre></div>
+  <label for="l2-guess-5" style="font-family:var(--font-display); font-size:12.5px; font-weight:600; color:var(--ink-soft); display:block; margin:10px 0 6px;">Your guess — what's wrong here?</label>
+  <textarea id="l2-guess-5" rows="2" style="width:100%; font-family:var(--font-body); font-size:14px; padding:8px 10px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink); margin-bottom:10px;"></textarea>
   <details><summary>Reveal what's wrong</summary>
     <p>Maybe nothing — but check: is <code>calculateTotal</code> exported and used elsewhere in the codebase? A rename that crosses a module boundary can silently break every other file that imports the old name. "Looks right" here depends on information this diff alone doesn't show you.</p>
   </details>
@@ -667,6 +677,24 @@ html { scroll-behavior: smooth; }
   });
 })();
 
+</script>
+<script>
+  (function () {
+    "use strict";
+    var PREFIX = "vibe-workshop-lab:" + location.pathname + ":";
+    document.querySelectorAll("main.content input[id], main.content textarea[id]").forEach(function (el) {
+      var key = PREFIX + el.id;
+      var saved = localStorage.getItem(key);
+      if (saved !== null) {
+        if (el.type === "checkbox" || el.type === "radio") el.checked = saved === "true";
+        else el.value = saved;
+      }
+      var evt = (el.type === "checkbox" || el.type === "radio") ? "change" : "input";
+      el.addEventListener(evt, function () {
+        localStorage.setItem(key, el.type === "checkbox" || el.type === "radio" ? el.checked : el.value);
+      });
+    });
+  })();
 </script>
 </body>
 </html>

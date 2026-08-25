@@ -419,15 +419,61 @@ html { scroll-behavior: smooth; }
 
 <section class="block">
   <div class="sec-head"><span class="sec-num">3</span><h2>Score each one</h2></div>
+  <p style="font-size:13px; color:var(--muted);">Everything you type here stays in your browser only.</p>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Backlog item</th><th>Blast radius</th><th>Minimum verification</th><th>Who else needs to know?</th></tr></thead>
+      <thead><tr><th style="min-width:200px;">Backlog item</th><th>Blast radius</th><th style="min-width:180px;">Minimum verification</th><th style="min-width:180px;">Who else needs to know?</th></tr></thead>
       <tbody>
-        <tr><td>1.</td><td>☐ Low ☐ Med ☐ High</td><td></td><td></td></tr>
-        <tr><td>2.</td><td>☐ Low ☐ Med ☐ High</td><td></td><td></td></tr>
-        <tr><td>3.</td><td>☐ Low ☐ Med ☐ High</td><td></td><td></td></tr>
-        <tr><td>4.</td><td>☐ Low ☐ Med ☐ High</td><td></td><td></td></tr>
-        <tr><td>5.</td><td>☐ Low ☐ Med ☐ High</td><td></td><td></td></tr>
+        <tr>
+          <td><input type="text" id="l3-item-1" placeholder="Item 1" style="width:100%;"></td>
+          <td style="white-space:nowrap;">
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:10px;"><input type="radio" name="l3-radius-1" id="l3-radius-1-low" value="low"> Low</label>
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:10px;"><input type="radio" name="l3-radius-1" id="l3-radius-1-med" value="med"> Med</label>
+            <label style="display:inline-flex; align-items:center; gap:4px;"><input type="radio" name="l3-radius-1" id="l3-radius-1-high" value="high"> High</label>
+          </td>
+          <td><input type="text" id="l3-verify-1" style="width:100%;"></td>
+          <td><input type="text" id="l3-who-1" style="width:100%;"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="l3-item-2" placeholder="Item 2" style="width:100%;"></td>
+          <td style="white-space:nowrap;">
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:10px;"><input type="radio" name="l3-radius-2" id="l3-radius-2-low" value="low"> Low</label>
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:10px;"><input type="radio" name="l3-radius-2" id="l3-radius-2-med" value="med"> Med</label>
+            <label style="display:inline-flex; align-items:center; gap:4px;"><input type="radio" name="l3-radius-2" id="l3-radius-2-high" value="high"> High</label>
+          </td>
+          <td><input type="text" id="l3-verify-2" style="width:100%;"></td>
+          <td><input type="text" id="l3-who-2" style="width:100%;"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="l3-item-3" placeholder="Item 3" style="width:100%;"></td>
+          <td style="white-space:nowrap;">
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:10px;"><input type="radio" name="l3-radius-3" id="l3-radius-3-low" value="low"> Low</label>
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:10px;"><input type="radio" name="l3-radius-3" id="l3-radius-3-med" value="med"> Med</label>
+            <label style="display:inline-flex; align-items:center; gap:4px;"><input type="radio" name="l3-radius-3" id="l3-radius-3-high" value="high"> High</label>
+          </td>
+          <td><input type="text" id="l3-verify-3" style="width:100%;"></td>
+          <td><input type="text" id="l3-who-3" style="width:100%;"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="l3-item-4" placeholder="Item 4" style="width:100%;"></td>
+          <td style="white-space:nowrap;">
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:10px;"><input type="radio" name="l3-radius-4" id="l3-radius-4-low" value="low"> Low</label>
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:10px;"><input type="radio" name="l3-radius-4" id="l3-radius-4-med" value="med"> Med</label>
+            <label style="display:inline-flex; align-items:center; gap:4px;"><input type="radio" name="l3-radius-4" id="l3-radius-4-high" value="high"> High</label>
+          </td>
+          <td><input type="text" id="l3-verify-4" style="width:100%;"></td>
+          <td><input type="text" id="l3-who-4" style="width:100%;"></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="l3-item-5" placeholder="Item 5" style="width:100%;"></td>
+          <td style="white-space:nowrap;">
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:10px;"><input type="radio" name="l3-radius-5" id="l3-radius-5-low" value="low"> Low</label>
+            <label style="display:inline-flex; align-items:center; gap:4px; margin-right:10px;"><input type="radio" name="l3-radius-5" id="l3-radius-5-med" value="med"> Med</label>
+            <label style="display:inline-flex; align-items:center; gap:4px;"><input type="radio" name="l3-radius-5" id="l3-radius-5-high" value="high"> High</label>
+          </td>
+          <td><input type="text" id="l3-verify-5" style="width:100%;"></td>
+          <td><input type="text" id="l3-who-5" style="width:100%;"></td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -633,6 +679,24 @@ html { scroll-behavior: smooth; }
   });
 })();
 
+</script>
+<script>
+  (function () {
+    "use strict";
+    var PREFIX = "vibe-workshop-lab:" + location.pathname + ":";
+    document.querySelectorAll("main.content input[id], main.content textarea[id]").forEach(function (el) {
+      var key = PREFIX + el.id;
+      var saved = localStorage.getItem(key);
+      if (saved !== null) {
+        if (el.type === "checkbox" || el.type === "radio") el.checked = saved === "true";
+        else el.value = saved;
+      }
+      var evt = (el.type === "checkbox" || el.type === "radio") ? "change" : "input";
+      el.addEventListener(evt, function () {
+        localStorage.setItem(key, el.type === "checkbox" || el.type === "radio" ? el.checked : el.value);
+      });
+    });
+  })();
 </script>
 </body>
 </html>
